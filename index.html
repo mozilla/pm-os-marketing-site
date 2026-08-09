@@ -1,0 +1,1388 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"capabilities":{"assets":"assets.hcOK0ALv.js","comments":"comments.D1Mkjxge.js","db":"db.CeV_J5G-.js","downloads":"downloads.BXsoAvg9.js","mcp":"mcp.CYSdpjo0.js","permissions":"permissions.DdITF2Mk.js","sample":"sample.DpdXn9di.js","self":"self.BN4be5De.js","user":"user.Cr_h1ETf.js"},"transforms":"_transforms.VaITkagF.js","comments":"_comments.CNSvmFji.js","translate":"_translate.BOzFH2D9.js"}</script><script>(function(){"use strict";var ne=["light","dark","system"];function oe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function W(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function se(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&ne.includes(n)}function ie(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}var Y=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ae={sample:"sample"};function x(){const e=new Uint8Array(20);try{crypto.getRandomValues(e)}catch{for(let n=0;n<e.length;n++)e[n]=Math.floor(Math.random()*256)}let t="";for(const n of e)t+=(n%36).toString(36);return t}function ce(e,t){const n=r=>{const o={path:r},i=r.split("/");return{id:i[i.length-1],path:r,get:()=>t("get",[o]),set:g=>t("set",[o,g]),update:g=>t("update",[o,g]),delete:()=>t("delete",[o]),acquire:g=>t("acquire",[o,g]),onSnapshot:(g,y)=>t("subscribe",[o,g,y]),collection:g=>a(r+"/"+String(g))}},u=r=>({where:(o,i,g)=>u({...r,where:[...r.where??[],{f:String(o),op:String(i),v:g}]}),orderBy:(o,i)=>u({...r,orderBy:{f:String(o),dir:i===void 0?"asc":String(i)}}),limit:o=>u({...r,limit:Number(o)}),get:()=>t("query",[r]),onSnapshot:(o,i)=>t("subscribe",[r,o,i])}),a=r=>({...u({collection:r}),path:r,doc:o=>n(r+"/"+(o===void 0?x():String(o))),add:o=>{const i=n(r+"/"+x());return Promise.resolve(i.set(o)).then(()=>i)}});e.doc=r=>n(String(r)),e.collection=r=>a(String(r))}function J(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let o=0;o<t.length;o++){const i=t[o];if(i&&i.matches&&i.matches("a[href],area[href]")){n=i;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const u=n.getAttribute("href");if(!u)return;let a,r;try{a=new URL(u,document.baseURI),r=new URL(document.baseURI).origin}catch{return}if((a.protocol==="http:"||a.protocol==="https:")&&a.origin!==r){e.preventDefault();const o=(n.getAttribute("target")??document.querySelector("base[target]")?.getAttribute("target")??"").toLowerCase(),i=e.type==="auxclick"||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||!["","_self","_top","_parent"].includes(o);parent.postMessage({__frame_nav:!0,url:a.href,newTab:i},"*")}}var G={};function I(e){if(window===top)return;const t=Date.now();t-(G[e]||0)<500||(G[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}var le=2e3,V=["wheel","touchstart","touchmove","keydown","pointerdown"],X=0;function ue(e){e.isTrusted&&(X=Date.now())}function fe(){addEventListener("click",J,!0),addEventListener("auxclick",J,!0)}function de(){for(let e=0;e<V.length;e++)addEventListener(V[e],ue,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-X<le&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}var q="__frame_scroll",me=150,pe=310,ge=160,he=3e4;function ve(){let e=0,t=!1,n=!1,u=!1,a=0,r=null;const o=d=>{try{sessionStorage.setItem(q,JSON.stringify({y:d}))}catch{}},i=()=>{if(clearTimeout(e),r===null)return;const d=r;r=null,o(d)},g=()=>{if(t){t=!1;return}n=!0,r=scrollY,clearTimeout(e),e=setTimeout(i,me)};try{addEventListener("scroll",g,{passive:!0}),addEventListener("pagehide",i)}catch{}const y=()=>{let d;try{d=sessionStorage.getItem(q)}catch{return null}if(d===null)return null;let l;try{l=JSON.parse(d)}catch{l=null}const p=l?.y;if(!(typeof p=="number"&&Number.isFinite(p)&&p>=0)){try{sessionStorage.removeItem(q)}catch{}return null}return p};let c=!1;const f=d=>{try{const l=scrollY;scrollTo({top:d,left:0,behavior:"instant"}),a=d,u=!0,clearTimeout(e),r=null,o(d);const p=scrollY;p!==l&&(t=!0),p!==d&&!c&&(c=!0,addEventListener("load",()=>{try{if(scrollY===p){const v=y();f(v!==null?v:a)}}catch{}},{once:!0}))}catch{}},m=()=>{try{return!!location.hash}catch{return!0}};let h=!1;const _=()=>{try{if(h||innerWidth>pe||innerHeight>ge)return;h=!0;const d=Date.now(),l=()=>{try{removeEventListener("resize",l)}catch{}if(Date.now()-d>he||n||m())return;const p=y();f(p!==null?p:a)};addEventListener("resize",l)}catch{}};let w=!1,S=!1;return{restore(){if(w||(w=!0,m()))return;const d=y();d!==null&&(f(d),_())},promoted(){if(S||(S=!0,m()))return;const d=y();d!==null?(f(d),_()):u&&f(a)}}}function _e(e,t,n){const u=[...t.values()].filter(a=>a.targets.some(r=>r.startsWith(e+".")));return{wrap(a,r){const o=`${e}.${a}`,i=u.filter(g=>g.targets.includes(o));return i.length===0?(...g)=>{try{return r(...g)}catch(y){return Promise.reject(y)}}:(...g)=>{let y=g;for(const f of i){const m=f.module.parameters;if(m)try{y=m(y)}catch{return Promise.reject({code:"transform_error",id:f.id,scope:e,message:"parameters transform failed"})}}let c;try{c=r(...y)}catch(f){c=Promise.reject(f)}return c.then(f=>{for(let m=i.length-1;m>=0;m--){const h=i[m],_=h.module.returns;if(_)try{f=_(f)}catch{return n({id:h.id,scope:e,leg:"returns"}),f}}return f},f=>{for(let m=i.length-1;m>=0;m--){const h=i[m],_=h.module.throws;if(_)try{f=_(f)}catch{return n({id:h.id,scope:e,leg:"throws"}),Promise.reject(f)}}return Promise.reject(f)})}}}}function ye(e,t,n,u=()=>{}){const a=new Set(e.changes??[]),r=new Map;for(const o of a){const i=t[o];i&&r.set(o,i)}return{contract:e.contract,changes:a,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:r,shellOrigin:n.shellOrigin,mount:n.mount,pipe:o=>_e(o,r,u)}}var Ae="modulepreload",Re=function(e){return"/"+e},je={},be=function(t,n,u){let a=Promise.resolve();function r(o){const i=new Event("vite:preloadError",{cancelable:!0});if(i.payload=o,window.dispatchEvent(i),!i.defaultPrevented)throw o}return a.then(o=>{for(const i of o||[])i.status==="rejected"&&r(i.reason);return t().catch(r)})};(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let u=0;for(let a=0;a<n.length;a++){const r=n[a];try{e(t,r,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[r]}catch{}try{e(t,r,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[r]=="function"&&u++}if(u&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:u},"*")}catch{}})();var Ee=1e4,we=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function Q(e){for(const t of we)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var k=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),D=window.__FRAME_PREAMBLE?.transforms,z=window.__FRAME_PREAMBLE?.comments,B=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,Se=/^[a-z][a-z0-9_-]{0,63}$/,Z=null,M=null;function $(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var F=!1;function ee(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}var te=256,P=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}}),db:Object.assign(Object.create(null),{subscribe:{handlerArg:1,errArg:2}})}),L=new Map;function re(e,t){const n=L.get(e);if(!n)return;const u=Object.assign(Object.create(null),t);Object.assign(n.impl,u),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const a=n.queue;n.queue=[];for(const r of a){const o=u[r.method];if(o)if(P[e]?.[r.method])try{r.resolve(o(...r.args))}catch{T(r,P[e][r.method],{code:"transform_error",message:`${e}.${r.method} rejected its arguments`})}else o(...r.args).then(r.resolve,r.reject);else{const i={code:"capability_removed",message:`${e}.${r.method} is not in this runtime`},g=P[e]?.[r.method];if(g){T(r,g,i);continue}r.reject(i)}}}function Oe(e,t){const n=L.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const u=n.queue;n.queue=[];for(const a of u){const r=P[e]?.[a.method];if(r){T(a,r,t);continue}a.reject(t)}}function N(e,t){const n=Y[e];if(!n){Oe(e,t);return}re(e,Object.fromEntries(Object.entries(n).map(([u,a])=>[u,()=>Promise.resolve(a)])))}function T(e,t,n){if(e.syncState?.dead)return;const u=t.errArg===void 0?void 0:e.args[t.errArg],a=t.errArg===void 0?e.args[t.handlerArg]:u;typeof a=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{a(t.errArg===void 0?{type:"error",error:n}:n)}catch(r){ie(r)}})}var H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){fe(),de();let e=null;try{e=ve()}catch{}const t=H?.value??{};$(window,"claude",t);const n=c=>{const f={impl:Object.create(null),queue:[]};L.set(c,f);const m=f.impl,h=d=>({code:"queue_overflow",message:`${c}.${d}: pre-init call queue is full`}),_=(d,l)=>{if(f.queue.length>=te){const p=Y[c];return p&&d in p?Promise.resolve(p[d]):Promise.reject(h(d))}return new Promise((p,v)=>{f.queue.push({method:d,args:l,resolve:p,reject:v})})},w=ae[c],S=new Proxy(w===void 0?m:(()=>{}),{apply:(d,l,p)=>{const v=w,E=m[v]??m.__settled;return E?E(...p):_(v,p)},get:(d,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(w!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const p=P[c]?.[l];return p?(...v)=>{if(typeof v[p.handlerArg]!="function")throw new TypeError(`${c}.${l} requires a handler function`);const E=m[l];if(E)return E(...v);if(m.__settled){const b={dead:!1},U={args:[...v],syncState:b};return m.__settled().catch(s=>T(U,p,s)),()=>{b.dead=!0}}if(f.queue.length>=te){const b={dead:!1};return T({args:[...v],syncState:b},p,h(l)),()=>{b.dead=!0}}let A=null;const R={dead:!1};return f.queue.push({method:l,args:v,resolve:b=>{A=typeof b=="function"?b:null,R.dead&&A?.()},reject:()=>{},syncState:R}),()=>{R.dead=!0,A?.()}}:(...v)=>{const E=m[l]??m.__settled;return E?E(...v):_(l,v)}},set:()=>!1});c==="db"&&ce(m,(d,l)=>S[d](...l)),$(t,c,S)};for(const c of Object.keys(k)){if(t[c]!==void 0){$(t,c,t[c]);continue}n(c)}let u=null,a=null,r=0;const o=c=>{c.source!==parent||!Q(c.origin)||oe(c.data)&&(u=c.data.__frame_init,M=c.origin,removeEventListener("message",o),clearTimeout(r),a?.())};addEventListener("message",o),parent.postMessage({__frame_connect:!0},"*");const i=new Promise(c=>{a=c,r=setTimeout(()=>{removeEventListener("message",o),c()},Ee)}),g=document.readyState==="loading"?new Promise(c=>document.addEventListener("DOMContentLoaded",()=>c(),{once:!0})):Promise.resolve();g.then(()=>{try{e?.restore()}catch{}});const y=c=>{if(!(c.source!==parent||!Q(c.origin))&&W(c.data)){removeEventListener("message",y);try{e?.promoted()}catch{}}};addEventListener("message",y),i.then(async()=>{if(!u||!M){for(const s of L.keys())N(s,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}ee(u.theme);const c=M;let f=!1,m=!1;addEventListener("message",s=>{if(s.source!==parent||s.origin!==c)return;se(s.data)&&ee(s.data.__frame_theme.theme);const O=s.data?.__fc_mode;O&&typeof O=="object"&&!f&&z&&C.test(z)&&(f=!0,h(z).then(K=>K.install?.(c,O.on===!0)).catch(()=>{}));const j=s.data?.__ft_cmd;j&&typeof j=="object"&&!m&&B&&C.test(B)&&(m=!0,h(B).then(K=>K.install?.(c,j)).catch(()=>{}))});const h=s=>be(()=>import("/_runtime/"+s),void 0),_=Object.keys(u.capabilities??{});for(const s of _)Object.hasOwn(k,s)||Se.test(s)&&t[s]===void 0&&(n(s),N(s,{code:"capability_disabled",message:"capability not in this runtime generation"}));const w=_.filter(s=>Object.hasOwn(k,s)).map(s=>[s,k[s]]).filter(s=>typeof s[1]=="string"&&C.test(s[1])),[S,...d]=await Promise.allSettled([D&&C.test(D)?h(D):Promise.resolve({}),...w.map(([,s])=>h(s))]),l=M;Z=ye(u,S.status==="fulfilled"&&S.value?.TRANSFORMS||{},{shellOrigin:l,mount:re},s=>parent.postMessage({__frame_cap_telemetry:s},l));const p=s=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:s}},l),v=Z;d.forEach((s,O)=>{const j=w[O][0];if(s.status!=="fulfilled"){p(j);return}try{s.value?.install?.(v)}catch{p(j)}});for(const[s,O]of L)if(!(O.queue.length===0&&Object.keys(O.impl).length>0)){if(_.includes(s)){N(s,{code:"capability_disabled",message:"capability not available in this session"});continue}N(s,{code:"not_granted",message:"capability not available in this session"})}await g,parent.postMessage({__frame_ready:!0},M);let E=-1,A=0;const R=()=>{A=0;const s=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);s!==E&&(E=s,parent.postMessage({__frame_size:!0,h:s},l))},b=()=>{A||(A=setTimeout(R,200))},U=new ResizeObserver(b);U.observe(document.documentElement),document.body&&U.observe(document.body),document.addEventListener("load",b,!0),document.fonts?.ready.then(b,()=>{}),addEventListener("beforeprint",()=>{E=-1,R()}),b(),addEventListener("message",s=>{if(!(s.source!==parent||s.origin!==l)&&W(s.data)){try{e?.promoted()}catch{}E=-1,b()}})})}})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>PM OS — Your AI-First Productivity System for Firefox Product Work</title>
+
+<style>
+:root {
+  /* Mozilla Purple-forward theme (Firefox/product voice) */
+  --base: #FAFAFA;
+  --surface: #F9F9FB;
+  --aubergine: #210340;
+  --accent: #9059FF;
+  --accent-hover: #7542E5;
+  --accent-light: #E7DFFF;
+  --accent-deep: #592ACB;
+  --success: #00D230;
+  --success-hover: #28733F;
+  --text-primary: #161616;
+  --text-secondary: #6D6D6D;
+  --border: #E0E0E6;
+  --code-bg: #F0F0F4;
+
+  /* Typography - Mozilla brand fonts */
+  --font-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 6rem;
+
+  /* Layout */
+  --content-width: 1200px;
+  --text-width: 65ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base: #210340;
+    --surface: #2B1141;
+    --text-primary: #FAFAFA;
+    --text-secondary: #B3B3B3;
+    --border: #45278D;
+    --code-bg: #2B1141;
+  }
+}
+
+:root[data-theme="dark"] {
+  --base: #210340;
+  --surface: #2B1141;
+  --text-primary: #FAFAFA;
+  --text-secondary: #B3B3B3;
+  --border: #45278D;
+  --code-bg: #2B1141;
+}
+
+:root[data-theme="light"] {
+  --base: #FAFAFA;
+  --surface: #F9F9FB;
+  --text-primary: #161616;
+  --text-secondary: #6D6D6D;
+  --border: #E0E0E6;
+  --code-bg: #F0F0F4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  background: var(--base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--base);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.nav-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: var(--font-base);
+  padding: 0.25rem 0;
+}
+
+.nav-links button:hover {
+  color: var(--accent);
+}
+
+.nav-links button.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Tabs */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Hero */
+.hero {
+  background: var(--aubergine);
+  padding: var(--space-xl) var(--space-md);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: var(--space-md);
+  text-wrap: balance;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.hero-content h1 .accent-word {
+  color: var(--accent);
+}
+
+.hero-content .subhead {
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--font-base);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary {
+  background: var(--success);
+  color: #161616;
+  box-shadow: 0 4px 12px rgba(0, 210, 48, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--success);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 210, 48, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+.terminal-line {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.prompt {
+  color: var(--success);
+}
+
+.command {
+  color: var(--accent);
+}
+
+.output {
+  color: var(--text-secondary);
+  padding-left: 1rem;
+}
+
+/* Section base */
+section {
+  padding: var(--space-xl) var(--space-md);
+}
+
+.section-contained {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-header h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: var(--text-width);
+  line-height: 1.6;
+  margin-top: var(--space-md);
+}
+
+/* Features grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.feature-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(144, 89, 255, 0.15);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.feature-card code {
+  display: inline-block;
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  margin-top: var(--space-xs);
+}
+
+/* Skills browser */
+.skills-browser {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.skills-filter {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+
+.filter-group {
+  margin-bottom: var(--space-md);
+}
+
+.filter-group h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.filter-group ul {
+  list-style: none;
+}
+
+.filter-group li {
+  padding: 0.375rem 0;
+}
+
+.filter-group button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  cursor: pointer;
+  font-family: var(--font-base);
+  text-align: left;
+  width: 100%;
+  padding: 0;
+}
+
+.filter-group button:hover {
+  color: var(--accent);
+}
+
+.filter-group button.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.skills-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: var(--space-md);
+}
+
+.skill-card.hidden {
+  display: none;
+}
+
+.skill-card h3 {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+
+.skill-meta {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--code-bg);
+  color: var(--text-secondary);
+}
+
+.skill-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Steps */
+.steps {
+  margin-top: var(--space-lg);
+}
+
+.step {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.step p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  max-width: var(--text-width);
+}
+
+.step pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: var(--space-sm);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  margin: var(--space-sm) 0;
+}
+
+.step code {
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.step pre code {
+  background: none;
+  padding: 0;
+}
+
+.step ul, .step ol {
+  margin-left: var(--space-md);
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+}
+
+.step li {
+  margin-bottom: 0.375rem;
+}
+
+.step strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-lg) var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.footer-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: var(--space-lg) 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.75rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .skills-browser {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-filter {
+    position: static;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Focus styles */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+</style>
+
+<nav>
+  <div class="nav-content">
+    <span class="logo" onclick="showTab('overview')">PM OS</span>
+    <ul class="nav-links">
+      <li><button onclick="showTab('overview')" class="active" data-tab="overview">Overview</button></li>
+      <li><button onclick="showTab('skills')" data-tab="skills">Skills</button></li>
+      <li><button onclick="showTab('get-started')" data-tab="get-started">Get Started</button></li>
+      <li><button onclick="showTab('whats-new')" data-tab="whats-new">Release Notes</button></li>
+      <li><button onclick="showTab('faq')" data-tab="faq">FAQ</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Overview Tab -->
+  <div id="overview-tab" class="tab-content active">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>Your AI-first productivity system for <span class="accent-word">Firefox</span> product work</h1>
+          <p class="subhead">With the PM OS plugin installed, Claude understands Firefox out of the box — org structure, telemetry, experimentation workflow, integrations. No explaining from scratch.</p>
+          <div class="hero-cta">
+            <button onclick="showTab('get-started')" class="btn btn-primary">Install Now</button>
+            <button onclick="showTab('skills')" class="btn btn-secondary">Browse Skills</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+        <span class="terminal-line"><span class="prompt">$</span> <span class="command">/morning-briefing</span></span>
+        <span class="terminal-line output">📅 Today: 3 meetings, experiment review at 2pm</span>
+        <span class="terminal-line output">🎯 Active experiments: 2 (both in rollout)</span>
+        <span class="terminal-line output">🔧 Jira: 3 tickets need attention</span>
+        <span class="terminal-line output">✓ Suggested priorities: Review experiment 115 results</span>
+        <span class="terminal-line"></span>
+        <span class="terminal-line"><span class="prompt">$</span> <span class="command">/done</span></span>
+        <span class="terminal-line output">Today's work: 2 commits, 1 brief shipped, 3 tickets closed</span>
+        <span class="terminal-line output">✓ Stakeholder update drafted and posted to Slack</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>The PM OS packages Firefox context — product process, data infrastructure, team knowledge — so Claude Code is immediately productive.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>Knowledge Layer</h3>
+          <p>Firefox org structure, telemetry architecture (Glean, BigQuery), experimentation workflow (Nimbus, Experimenter), team processes.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Integration Layer</h3>
+          <p>Pre-wired connections to Atlassian, Google Workspace, Slack, BigQuery, Redash, Glean Dictionary, Metric Hub, Bugzilla, Figma, Zoom.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Skill Layer</h3>
+          <p>50+ JTBD-organized skills that chain knowledge + integrations into complete workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Start Here: The Daily Bookends</h2>
+        <p>The anchors of the PM OS. Run <code>/morning-briefing</code> to start your day, <code>/done</code> to end it. These two commands form the rhythm — everything else builds from here.</p>
+      </div>
+
+      <div class="features" style="grid-template-columns: repeat(2, 1fr); max-width: 900px;">
+        <div class="feature-card">
+          <h3>/morning-briefing</h3>
+          <p><strong>Start your day.</strong> Daily morning briefing — calendar, Jira signals, metric changes, competitor updates, and focus-task suggestions.</p>
+          <code>/morning-briefing</code>
+        </div>
+        <div class="feature-card">
+          <h3>/done</h3>
+          <p><strong>End your day.</strong> End-of-session compound — runs capture-context, process-backlog, log-ai-session, update-memory, check-for-skills, then push-config.</p>
+          <code>/done</code>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-xl);">
+        <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: var(--space-sm);">Pre-Built Skills to Make PM Life Easier</h3>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 50+ skills covering everything from experiment design to data analysis to stakeholder updates.</p>
+        <div class="features">
+          <div class="feature-card">
+            <h3>/write-experiment-brief</h3>
+            <p>Write an experiment brief for a hypothesis ready for rigorous testing, following the structured template and best practices.</p>
+            <code>/write-experiment-brief</code>
+          </div>
+          <div class="feature-card">
+            <h3>/run-redash-analysis</h3>
+            <p>Run predefined Redash analyses (resurrections, acquisition, retention) using saved queries.</p>
+            <code>/run-redash-analysis</code>
+          </div>
+          <div class="feature-card">
+            <h3>/prep-meeting</h3>
+            <p>Generate a targeted pre-meeting briefing for a specific upcoming meeting (calendar event, agenda, prior context).</p>
+            <code>/prep-meeting</code>
+          </div>
+          <div class="feature-card">
+            <h3>/weekly-reflection</h3>
+            <p>End-of-week reflection — pipeline health, velocity, patterns across the week, and what to carry into next.</p>
+            <code>/weekly-reflection</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Contexts -->
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Team Contexts</h2>
+        <p>Team-specific knowledge packages that make the PM OS understand your workflows, processes, and examples.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>What They Are</h3>
+          <p>Team contexts add custom skills, templates, examples, and integration patterns on top of the base system.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Growth Team (Available Now)</h3>
+          <p>Custom weekly updates, monthly reports, growth-specific metrics, experiment brief templates, plus 8 growth-specific skills.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Request Your Team's Context</h3>
+          <p>Want the PM OS to understand your team? Reach out to Jenny Wanger (jwanger@mozilla.com) to discuss adding your team's context. We'll need 3-5 example deliverables and a 30-minute interview. Timeline depends on the team — can be a few days if materials are ready.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Skills Tab -->
+  <div id="skills-tab" class="tab-content">
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Skills Reference</h2>
+        <p>Complete catalog of 50+ skills, organized by job to be done. Use the filters to browse by category or team.</p>
+      </div>
+
+      <div class="skills-browser">
+        <aside class="skills-filter">
+          <div class="filter-group">
+            <h4>Search</h4>
+            <input
+              type="text"
+              id="skill-search"
+              placeholder="Type to filter..."
+              style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 0.375rem; font-family: var(--font-base); font-size: 0.9rem;"
+              oninput="searchSkills(this.value)"
+            />
+          </div>
+          <div class="filter-group">
+            <h4>By JTBD</h4>
+            <ul>
+              <li><button onclick="filterSkills('all')" class="active" data-filter="all">All Skills</button></li>
+              <li><button onclick="filterSkills('write')" data-filter="write">Write Experiment Materials</button></li>
+              <li><button onclick="filterSkills('analyze')" data-filter="analyze">Run & Report Analyses</button></li>
+              <li><button onclick="filterSkills('track')" data-filter="track">Track & Report Progress</button></li>
+              <li><button onclick="filterSkills('stakeholders')" data-filter="stakeholders">Manage Stakeholders</button></li>
+              <li><button onclick="filterSkills('decide')" data-filter="decide">Make Decisions</button></li>
+            </ul>
+          </div>
+          <div class="filter-group">
+            <h4>Team</h4>
+            <ul>
+              <li><button onclick="filterSkills('base')" data-filter="base">Base (Everyone)</button></li>
+              <li><button onclick="filterSkills('growth')" data-filter="growth">Growth</button></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="skills-grid">
+          <!-- Daily Workflow -->
+          <div class="skill-card" data-jtbd="track" data-team="base">
+            <h3>/morning-briefing</h3>
+            <div class="skill-meta">
+              <span class="badge">Track & Report</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Daily morning briefing — calendar, Jira signals, metric changes, competitor updates, and focus-task suggestions from pm-os/Personal/tasks/.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="track" data-team="base">
+            <h3>/done</h3>
+            <div class="skill-meta">
+              <span class="badge">Track & Report</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>End-of-session compound — runs capture-context, process-backlog, log-ai-session, update-memory, check-for-skills, check-for-contributions, upstream drift detection, then push-config. Collects approval items into one numbered list at the end.</p>
+          </div>
+
+          <!-- Write Experiment Materials -->
+          <div class="skill-card" data-jtbd="write" data-team="base">
+            <h3>/write-experiment-brief</h3>
+            <div class="skill-meta">
+              <span class="badge">Write Experiment Materials</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Write an experiment brief for a hypothesis ready for rigorous testing, following the structured template and best practices.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="write" data-team="base">
+            <h3>/write-experiment-json</h3>
+            <div class="skill-meta">
+              <span class="badge">Write Experiment Materials</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Generate Experimenter JSON config from an experiment brief — branches, targeting, feature configs, and enrollment criteria.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="write" data-team="base">
+            <h3>/write-experiment-update</h3>
+            <div class="skill-meta">
+              <span class="badge">Write Experiment Materials</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Draft experiment status updates for stakeholders based on current state (enrollment, rollout, results).</p>
+          </div>
+
+          <!-- Run & Report Analyses -->
+          <div class="skill-card" data-jtbd="analyze" data-team="base">
+            <h3>/run-redash-analysis</h3>
+            <div class="skill-meta">
+              <span class="badge">Run & Report Analyses</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Run predefined Redash analyses (resurrections, acquisition, retention) using the saved queries in modules/redash/context.md.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="analyze" data-team="base">
+            <h3>/analyze-experiment</h3>
+            <div class="skill-meta">
+              <span class="badge">Run & Report Analyses</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Analyze concluded experiment results from mozanalysis tables in Redash — stat-sig effects, segment cuts, false-belief checks.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="analyze" data-team="growth">
+            <h3>/growth-write-monthly-report</h3>
+            <div class="skill-meta">
+              <span class="badge">Run & Report Analyses</span>
+              <span class="badge">Growth</span>
+            </div>
+            <p>Monthly metrics rollup with trend analysis for Growth team leadership update.</p>
+          </div>
+
+          <!-- Track & Report Progress -->
+          <div class="skill-card" data-jtbd="track" data-team="base">
+            <h3>/weekly-reflection</h3>
+            <div class="skill-meta">
+              <span class="badge">Track & Report</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>End-of-week reflection — pipeline health, velocity, patterns across the week, and what to carry into next.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="track" data-team="growth">
+            <h3>/growth-write-weeknote</h3>
+            <div class="skill-meta">
+              <span class="badge">Track & Report</span>
+              <span class="badge">Growth</span>
+            </div>
+            <p>Draft the Growth team's contribution to the org-wide Firefox Product Development Weeknote. Synthesizes team work into 2–3 bullets with insights and metrics.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="track" data-team="base">
+            <h3>/weekly-wins</h3>
+            <div class="skill-meta">
+              <span class="badge">Track & Report</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Extract wins from commits, tickets, and experiments for weekly highlights and team updates.</p>
+          </div>
+
+          <!-- Manage Stakeholders -->
+          <div class="skill-card" data-jtbd="stakeholders" data-team="base">
+            <h3>/prep-meeting</h3>
+            <div class="skill-meta">
+              <span class="badge">Manage Stakeholders</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Generate a targeted pre-meeting briefing for a specific upcoming meeting (calendar event, agenda, prior context).</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="stakeholders" data-team="base">
+            <h3>/edit-org-weeknote</h3>
+            <div class="skill-meta">
+              <span class="badge">Manage Stakeholders</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Contribute to or edit the org-wide weekly update when you're on rotation.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="stakeholders" data-team="base">
+            <h3>/write-prototype-brief</h3>
+            <div class="skill-meta">
+              <span class="badge">Manage Stakeholders</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Spec out prototype scope, success criteria, and resource requirements for early-stage exploration.</p>
+          </div>
+
+          <!-- Make Decisions -->
+          <div class="skill-card" data-jtbd="decide" data-team="base">
+            <h3>/estimate-impact</h3>
+            <div class="skill-meta">
+              <span class="badge">Make Decisions</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Model potential impact of a feature or experiment before launch using historical data and projections.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="decide" data-team="base">
+            <h3>/detect-experiment-collisions</h3>
+            <div class="skill-meta">
+              <span class="badge">Make Decisions</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Find overlapping experiments before launch — audience overlap, feature conflicts, measurement collision.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="decide" data-team="base">
+            <h3>/generate-hypotheses</h3>
+            <div class="skill-meta">
+              <span class="badge">Make Decisions</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Brainstorm testable hypotheses from data patterns, user feedback, or competitive intelligence.</p>
+          </div>
+
+          <div class="skill-card" data-jtbd="decide" data-team="base">
+            <h3>/review-experiment</h3>
+            <div class="skill-meta">
+              <span class="badge">Make Decisions</span>
+              <span class="badge">Base</span>
+            </div>
+            <p>Adversarial quality review of an experiment brief — structure, rigor, multiple-comparisons risk, DAU projection sanity, and false-belief drift.</p>
+          </div>
+
+          <!-- Empty State -->
+          <div id="skills-empty-state" style="display: none; grid-column: 1 / -1; text-align: center; padding: var(--space-xl) var(--space-md); color: var(--text-secondary);">
+            <h3 style="color: var(--text-primary); margin-bottom: var(--space-sm);">No skills match your search</h3>
+            <p style="margin-bottom: var(--space-md);">Can't find what you're looking for? The PM OS is designed to grow with the team's needs.</p>
+            <p><strong>Build it and submit a PR!</strong> Check out the <a href="https://github.com/mozilla/internal-aidev-plugins" style="color: var(--accent); text-decoration: underline;">GitHub repository</a> to contribute new skills.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Get Started Tab -->
+  <div id="get-started-tab" class="tab-content">
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Getting Started</h2>
+        <p>Complete onboarding from zero to first skill. The Bugzilla ticket takes up to 5 days (usually 1-2); everything else is 60-90 minutes once approved.</p>
+      </div>
+
+      <div style="margin-bottom: var(--space-lg); padding: var(--space-md); background: linear-gradient(135deg, rgba(144, 89, 255, 0.1), rgba(117, 66, 229, 0.1)); border: 1px solid var(--accent); border-radius: 0.75rem;">
+        <h3 style="margin-bottom: var(--space-sm); color: var(--accent);">New to the PM OS? Point Claude at This Website</h3>
+        <p style="color: var(--text-secondary);">Paste this URL into Claude Code and say:</p>
+        <pre style="margin-top: var(--space-sm); background: rgba(0, 0, 0, 0.05); border: 1px solid var(--border);"><code>"I just installed the PM OS. Walk me through getting started based on this guide."</code></pre>
+        <p style="color: var(--text-secondary); margin-top: var(--space-sm);">Claude will read this site and personalize onboarding to your role.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Step 1: Link GitHub to Mozilla Identity</h3>
+          <p>Mozilla matches your GitHub username to your work identity through <code>people.mozilla.org</code>.</p>
+          <ol>
+            <li>Go to <strong>people.mozilla.org</strong> and log in with Mozilla SSO</li>
+            <li>Click your name → <strong>My Profile</strong></li>
+            <li>Scroll to <strong>Contact / Identities</strong></li>
+            <li>Click the pencil → Choose <strong>GitHub</strong> → <strong>Verify</strong></li>
+          </ol>
+        </div>
+
+        <div class="step">
+          <h3>Step 2: Request Mozilla GitHub Org Access (File This First!)</h3>
+          <p><strong>This takes up to 5 days (usually 1-2).</strong> Do this before anything else. While you wait, work through Steps 3-4.</p>
+          <p><a href="https://bugzilla.mozilla.org/enter_bug.cgi?assigned_to=nobody%40mozilla.org&bug_ignored=0&bug_severity=--&bug_status=NEW&bug_type=task&cf_fx_iteration=---&cf_fx_points=---&comment=I%20would%20like%20to%20be%20added%20to%20the%20%60product-management%60%20team%20in%20the%20Mozilla%20org.%0D%0A%0D%0AI%20have%20linked%20my%20GitHub%20ID%20to%20my%20%5Bpeople.mozilla.org%5D%28https%3A%2F%2Fpeople.mozilla.org%29%20profile%20as%20outlined%20in%3A%0D%0Ahttps%3A%2F%2Fwiki.mozilla.org%2FGitHub%2FGHE_SAML_User_FAQ%23People.m.o_linkage_to_GitHub_account%0D%0A%0D%0AName%3A%20%3CYOUR_NAME_HERE%3E%0D%0APeople%20Directory%20Profile%20Link%3A%20%3CLINK_TO_YOUR_PEOPLEMO_ENTRY%3E%0D%0AGitHub%20Team%28s%29%3A%20%60product-management%60%0D%0A&component=Github%3A%20Administration&contenttypemethod=list&contenttypeselection=text%2Fplain&defined_groups=1&filed_via=standard_form&flag_type-4=X&flag_type-607=X&flag_type-803=X&flag_type-864=X&flag_type-936=X&groups=mozilla-employee-confidential&needinfo_from=jwanger%40mozilla.com%2C%20&needinfo_role=other&needinfo_type=needinfo_from&op_sys=Unspecified&priority=--&product=mozilla.org&qa_contact=jbircher%40mozilla.com&rep_platform=Unspecified&short_desc=Requesting%20GitHub%20membership%20to%20the%20product-management%20team%20in%20the%20Mozilla%20org&target_milestone=---&version=other" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">File Bugzilla Ticket (pre-filled template)</a></p>
+          <p style="margin-top: 1rem;">Fill in your name and people.mozilla.org profile link, then submit.</p>
+        </div>
+
+        <div class="step">
+          <h3>Step 3: Install Git and GitHub CLI</h3>
+          <p><strong>Tip:</strong> You can copy-paste this entire step into Claude Code and let it do most of this for you.</p>
+
+          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Open a terminal</h4>
+          <p><strong>macOS:</strong> Press Cmd+Space, type "Terminal", press Enter. The built-in Terminal app works fine.</p>
+          <p><strong>Windows:</strong> Press the Windows key, type "Windows Terminal", press Enter. (On Windows 11 this is pre-installed; on Windows 10 install it from the Microsoft Store.)</p>
+
+          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Install git and the GitHub CLI</h4>
+
+          <p><strong>macOS:</strong></p>
+          <p>Step 1: Install Homebrew (Mac's package manager). Paste this one line and press Enter:</p>
+          <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+          <p>This asks for your <strong>Mac login password</strong> (the one you use to unlock your laptop). <strong>Nothing will appear as you type it</strong> — that's normal. Type, press Enter, wait.</p>
+          <p>If Homebrew prints two lines starting with <code>eval</code> and tells you to run them, do that.</p>
+          <p>Verify Homebrew is wired up:</p>
+          <pre><code>brew --version</code></pre>
+          <p>You should see something like <code>Homebrew 4.x.x</code>. If you get "command not found," close and reopen your terminal, then retry.</p>
+
+          <p style="margin-top: var(--space-md);">Step 2: Install git and gh in one line:</p>
+          <pre><code>brew install git gh</code></pre>
+          <p>This takes 1–5 minutes. When done, verify both:</p>
+          <pre><code>git --version
+gh --version</code></pre>
+          <p>You should see <code>git version 2.x.x</code> and <code>gh version 2.x.x</code>.</p>
+
+          <p style="margin-top: var(--space-md);"><strong>Windows:</strong></p>
+          <p>Step 1: Install Git for Windows. Download the installer from <a href="https://git-scm.com/download/win" style="color: var(--accent);">git-scm.com/download/win</a> and run it with all defaults.</p>
+          <p>Step 2: Install the GitHub CLI. In PowerShell, paste this one line:</p>
+          <pre><code>winget install --id GitHub.cli</code></pre>
+          <p>If <code>winget</code> is not recognized, download the installer from <a href="https://cli.github.com/" style="color: var(--accent);">cli.github.com</a> instead.</p>
+          <p><strong>Close and reopen Windows Terminal</strong>, then verify both:</p>
+          <pre><code>git --version
+gh --version</code></pre>
+
+          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Sign in to GitHub from the terminal</h4>
+          <p>Paste this one line and press Enter:</p>
+          <pre><code>gh auth login</code></pre>
+          <p><code>gh</code> will ask you a series of questions. Answer them with the arrow keys + Enter:</p>
+          <ol>
+            <li><strong>What account do you want to log into?</strong> → <code>GitHub.com</code></li>
+            <li><strong>What is your preferred protocol for Git operations?</strong> → <code>HTTPS</code></li>
+            <li><strong>Authenticate Git with your GitHub credentials?</strong> → <code>Yes</code></li>
+            <li><strong>How would you like to authenticate GitHub CLI?</strong> → <code>Login with a web browser</code></li>
+            <li>It prints a one-time code (e.g., <code>ABCD-1234</code>). <strong>Copy the code first</strong>, then press Enter.</li>
+            <li>Your browser opens to GitHub. Paste the code, click Continue, click Authorize github.</li>
+            <li><strong>CRITICAL:</strong> Scroll down to <strong>"Single sign-on organizations"</strong>. Find <strong>Mozilla</strong> and click <strong>Authorize</strong> next to it. Without this, you can't read Mozilla repos.</li>
+            <li>Close the browser tab. You should see "✓ Authentication complete."</li>
+          </ol>
+
+          <p style="margin-top: var(--space-md);">Then wire git to use <code>gh</code>'s credentials:</p>
+          <pre><code>gh auth setup-git</code></pre>
+          <p>It prints nothing on success — that's normal. This prevents the "password required" prompt that everyone gets stuck on.</p>
+        </div>
+
+        <div class="step">
+          <h3>Step 4: Set Up SSH Keys for Mozilla Repos</h3>
+          <p><strong>Why this matters:</strong> Mozilla's internal repos require SSH authentication with SSO authorization. Skipping this step causes the "Plugin not found" error in Step 5.</p>
+
+          <p><strong>Generate the key</strong> (replace the email with your GitHub account email):</p>
+          <pre><code>ssh-keygen -t ed25519 -C "your-github-account-email@example.com"</code></pre>
+          <p>When it asks "Enter file in which to save the key," just press Enter. When it asks for a passphrase, press Enter twice to leave it empty.</p>
+
+          <p style="margin-top: var(--space-md);"><strong>Add the key to the ssh-agent:</strong></p>
+          <p><em>macOS:</em></p>
+          <pre><code>eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519</code></pre>
+          <p>The first line starts the agent. The second adds your key and saves it in macOS Keychain.</p>
+
+          <p style="margin-top: var(--space-md);"><em>Windows (PowerShell):</em></p>
+          <pre><code>Get-Service ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></pre>
+
+          <p style="margin-top: var(--space-md);"><em>Windows (Git Bash):</em></p>
+          <pre><code>eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</code></pre>
+
+          <p style="margin-top: var(--space-md);"><strong>Copy the public key to your clipboard:</strong></p>
+          <p><em>macOS:</em></p>
+          <pre><code>pbcopy < ~/.ssh/id_ed25519.pub</code></pre>
+
+          <p><em>Windows (PowerShell):</em></p>
+          <pre><code>Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | Set-Clipboard</code></pre>
+
+          <p><em>Windows (Git Bash):</em></p>
+          <pre><code>clip < ~/.ssh/id_ed25519.pub</code></pre>
+
+          <p style="margin-top: var(--space-md);"><strong>Add the key to GitHub:</strong></p>
+          <ol>
+            <li>Go to <a href="https://github.com/settings/keys" style="color: var(--accent);">github.com/settings/keys</a> → <strong>New SSH key</strong></li>
+            <li>Title: <code>My laptop</code></li>
+            <li>Paste the key (Cmd+V / Ctrl+V) into the Key field</li>
+            <li>Click <strong>Add SSH key</strong></li>
+            <li><strong>CRITICAL:</strong> Find your new key in the list, click <strong>Configure SSO</strong> → <strong>Authorize</strong> next to Mozilla. Without this, the key works for personal repos but is rejected by Mozilla repos.</li>
+          </ol>
+        </div>
+
+        <div class="step">
+          <h3>Step 5: Install the Plugin</h3>
+          <p>Make sure Claude Code is up to date (<code>/doctor</code>), then:</p>
+          <pre><code>/plugin marketplace add mozilla/internal-aidev-plugins
+/plugin install pm-os-base@internal-aidev-plugins
+/reload-plugins</code></pre>
+        </div>
+
+        <div class="step">
+          <h3>Step 6: Run Setup</h3>
+          <p>Personalizes the PM OS to your role, goals, and manager:</p>
+          <pre><code>/pm-os-base:setup</code></pre>
+          <p><strong>Tip:</strong> Dictate your answers instead of typing for 3-5× more context.</p>
+        </div>
+
+        <div class="step">
+          <h3>Step 7: Enable Integrations</h3>
+          <p>Set up at minimum: <strong>Atlassian</strong>, <strong>Google Workspace</strong>, and <strong>Slack</strong>.</p>
+          <pre><code>/pm-os-base:manage</code></pre>
+        </div>
+
+        <div class="step">
+          <h3>Step 8: Try Your First Skill</h3>
+          <pre><code>/pm-os-base:morning-briefing</code></pre>
+          <p>If it works — you're installed.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Release Notes Tab -->
+  <div id="whats-new-tab" class="tab-content">
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Release Notes</h2>
+        <p>What's new and coming soon.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Version 0.2.6 — July 2026</h3>
+          <p><strong>Multi-team support:</strong></p>
+          <ul>
+            <li>Generalized pm-os-base for multiple team contexts (not just Growth)</li>
+            <li>Split <code>/weeknote</code> into <code>/growth-write-weeknote</code> (team-specific) and <code>/edit-org-weeknote</code> (org-wide editing)</li>
+            <li>Added <code>/contribute</code> and <code>/merge-context</code> for two-way team knowledge sync</li>
+          </ul>
+          <p><strong>New skills:</strong></p>
+          <ul>
+            <li><code>/roadmap-status-update</code> — Generate roadmap status updates</li>
+            <li><code>/firefox-release-schedule</code> — Resolve Firefox versions, channels, and ship dates</li>
+          </ul>
+          <p><strong>Enhanced:</strong></p>
+          <ul>
+            <li><code>/morning-briefing</code> and <code>/done</code> surface upstream drift in forked files</li>
+            <li>Auto-route correlation analyses through rigor checks</li>
+            <li>Telemetry Phase B: opt-in background sync to pilot Google Sheet</li>
+            <li>Added Mozilla strategy reference layer</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Version 0.2.4 — June 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li>Added telemetry/metric definition verification to data science reviews</li>
+            <li>Annotated chart house-style reference</li>
+            <li>Rapid concept testing reference doc</li>
+            <li><code>/migrate-automation</code> — Cross-platform scheduled-job repair</li>
+          </ul>
+          <p><strong>Enhanced:</strong></p>
+          <ul>
+            <li>Google Workspace: codified markdown-vs-raw-JSON rule for reading Docs</li>
+            <li>Backup system: detect/resume on migration, in-place <code>/push-config</code> support</li>
+            <li>Setup: made GOALS.md optional — can skip goals questions</li>
+            <li>Task-backlog: made backlog/tasks workflow an optional feature module</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Version 0.2.2 — May 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Zoom MCP integration</strong> — <code>/sync-zoom</code> pulls meeting transcripts and notes</li>
+            <li>Comprehensive Zoom setup guide</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Version 0.2.0 — May 2026</h3>
+          <p><strong>Initial public release:</strong></p>
+          <ul>
+            <li>40+ base skills organized by JTBD</li>
+            <li>Growth team context with 8+ team-specific skills</li>
+            <li>10 integrations: Atlassian, Google Workspace, Slack, BigQuery, Redash, Glean Dictionary, Metric Hub, Bugzilla, Figma, Zoom</li>
+            <li><code>/setup</code> flow personalizes system to role and goals</li>
+            <li>Safety hooks: default-on protection against credential leaks, unsafe installs</li>
+            <li>Daily workflow anchors: <code>/morning-briefing</code> and <code>/done</code></li>
+          </ul>
+        </div>
+
+        <div class="step" style="border-bottom: none; padding-bottom: 0;">
+          <h3>Coming Soon</h3>
+          <ul>
+            <li>Additional team contexts (CoreX in progress)</li>
+            <li>Enhanced experiment analysis — statistical significance testing, confidence intervals</li>
+            <li>Mobile telemetry integration enhancements</li>
+            <li>Bugzilla signals in morning briefing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ Tab -->
+  <div id="faq-tab" class="tab-content">
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>FAQ</h2>
+        <p>Common questions and troubleshooting.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>I get "Plugin 'pm-os-base' not found in marketplace"</h3>
+          <p>This means Claude Code can't access the <code>mozilla/internal-aidev-plugins</code> repo. Most common cause: <strong>you haven't set up SSH keys yet</strong>.</p>
+          <p>Complete <strong>Step 4: Set Up SSH Keys for Mozilla Repos</strong> in Getting Started, especially the <strong>Configure SSO → Authorize</strong> step. Without SSO authorization on your SSH key, Claude Code can read the marketplace but can't clone the actual plugin repo.</p>
+          <p>After completing Step 4, retry <code>/plugin install pm-os-base@internal-aidev-plugins</code>.</p>
+        </div>
+
+        <div class="step">
+          <h3>I get "Repository not found" when installing the plugin</h3>
+          <p>This means you don't have access to <code>mozilla/internal-aidev-plugins</code> yet. Check Step 1 in Getting Started — you should see "View as member" on github.com/mozilla. If you see "View as public," your Bugzilla ticket hasn't been approved yet.</p>
+        </div>
+
+        <div class="step">
+          <h3>Git asks for a password during install</h3>
+          <p>You skipped <code>gh auth setup-git</code> in Step 3. Run it now.</p>
+        </div>
+
+        <div class="step">
+          <h3>Atlassian MCP is erroring</h3>
+          <p>Run <code>/pm-os-base:manage</code>, select <strong>setup 2</strong> (Atlassian). This runs the install script that fixes the known dependency issue.</p>
+        </div>
+
+        <div class="step">
+          <h3>BigQuery queries fail with "ADC expired"</h3>
+          <p>Your Google Cloud credentials expired. Run:</p>
+          <pre><code>gcloud auth application-default login</code></pre>
+        </div>
+
+        <div class="step">
+          <h3>Slack/Zoom say "Requires Claude Code"</h3>
+          <p>These integrations only work in Claude Code (not Cursor, VS Code, etc.) because they use Claude Code's built-in OAuth system. Mozilla's Slack workspace only approved the Anthropic Slack app.</p>
+        </div>
+
+        <div class="step">
+          <h3>A skill says "[Integration] not configured"</h3>
+          <p>The skill tried to use an integration you haven't set up. Run <code>/pm-os-base:manage</code> to enable it. The skill should still work, just with reduced functionality.</p>
+        </div>
+
+        <div class="step">
+          <h3>How do I customize a skill's output?</h3>
+          <p>See Overview → Tips section. Copy the skill to <code>Personal/skills/</code>, edit it, and your version overrides the default.</p>
+        </div>
+
+        <div class="step">
+          <h3>Is my personal data shared with anyone?</h3>
+          <p>No. Everything in <code>~/pm-os/Personal/</code> is gitignored and never leaves your machine. The plugin itself is read-only and shared.</p>
+        </div>
+
+        <div class="step">
+          <h3>How do I update the PM OS when a new version comes out?</h3>
+          <p><strong>Enable auto-updates (recommended):</strong> The PM OS doesn't auto-update by default. Run this once to enable it:</p>
+          <pre><code>/plugin</code></pre>
+          <p>Navigate to the PM OS entry, select it, and toggle <strong>Auto-update</strong> on. This ensures you get new features, bug fixes, and integration improvements automatically.</p>
+          <p><strong>Manual update:</strong> Run <code>/plugin update pm-os-base@internal-aidev-plugins</code> anytime to pull the latest version.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p style="color: var(--text-secondary);">Built by Firefox PMs, for Firefox PMs.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/mozilla/internal-aidev-plugins">GitHub</a></li>
+      <li><a href="mailto:jwanger@mozilla.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// Tab switching
+function showTab(tabName) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+
+  // Show selected tab
+  document.getElementById(tabName + '-tab').classList.add('active');
+
+  // Update nav active state
+  document.querySelectorAll('.nav-links button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`[data-tab="${tabName}"]`)?.classList.add('active');
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
+// Skills filtering
+let currentFilter = 'all';
+let currentSearchTerm = '';
+
+function filterSkills(filterValue) {
+  currentFilter = filterValue;
+
+  // Update filter button states
+  document.querySelectorAll('.skills-filter button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`[data-filter="${filterValue}"]`).classList.add('active');
+
+  // Apply both filter and search
+  applyFilters();
+}
+
+function searchSkills(searchTerm) {
+  currentSearchTerm = searchTerm.toLowerCase();
+  applyFilters();
+}
+
+function applyFilters() {
+  const cards = document.querySelectorAll('.skill-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const jtbd = card.dataset.jtbd;
+    const team = card.dataset.team;
+    const skillName = card.querySelector('h3').textContent.toLowerCase();
+    const skillDesc = card.querySelector('p').textContent.toLowerCase();
+
+    // Check category filter
+    let matchesFilter = false;
+    if (currentFilter === 'all') {
+      matchesFilter = true;
+    } else if (currentFilter === 'base' || currentFilter === 'growth') {
+      matchesFilter = team === currentFilter;
+    } else {
+      matchesFilter = jtbd === currentFilter;
+    }
+
+    // Check search term
+    let matchesSearch = true;
+    if (currentSearchTerm) {
+      matchesSearch = skillName.includes(currentSearchTerm) || skillDesc.includes(currentSearchTerm);
+    }
+
+    // Show only if both conditions are met
+    if (matchesFilter && matchesSearch) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // Show/hide empty state
+  const emptyState = document.getElementById('skills-empty-state');
+  if (emptyState) {
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if there's a hash in URL
+  const hash = window.location.hash.substring(1);
+  if (hash && ['overview', 'skills', 'get-started', 'whats-new', 'faq'].includes(hash)) {
+    showTab(hash);
+  }
+});
+</script>
+
+</body></html>

@@ -1337,9 +1337,36 @@ function showTab(tabName) {
   });
   document.querySelector(`[data-tab="${tabName}"]`)?.classList.add('active');
 
+  // Update URL hash
+  window.location.hash = tabName;
+
   // Scroll to top
   window.scrollTo(0, 0);
 }
+
+// Handle hash-based routing on page load and hash changes
+function loadTabFromHash() {
+  const hash = window.location.hash.slice(1); // Remove the '#'
+  const validTabs = ['overview', 'skills', 'get-started', 'whats-new', 'faq'];
+  const tabToShow = validTabs.includes(hash) ? hash : 'overview';
+
+  // Show tab without updating hash (to avoid infinite loop)
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  document.getElementById(tabToShow + '-tab').classList.add('active');
+
+  document.querySelectorAll('.nav-links button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`[data-tab="${tabToShow}"]`)?.classList.add('active');
+}
+
+// Load correct tab on page load
+window.addEventListener('DOMContentLoaded', loadTabFromHash);
+
+// Handle browser back/forward buttons
+window.addEventListener('hashchange', loadTabFromHash);
 
 // Skills filtering
 let currentFilter = 'all';

@@ -41,4 +41,4 @@ jobs:
         run: |
           gcloud storage cp gs://moz-fx-quick-prod-cli/quick-linux-amd64 ./quick
           chmod +x ./quick
-          ./quick deploy "$DIR" "$SITE" --mirror ${{ inputs.force && '--yes' || '' }}
+          ./quick deploy "$DIR" "$SITE" --mirror --yes

@@ -6,8 +6,8 @@ Marketing and documentation site for the PM OS plugin, deployed to **[pm-os.quic
 
 This site is the public-facing documentation and marketing page for the PM OS plugin. It includes:
 - Overview of what PM OS is and how it works
-- Full skills catalog (50+ skills organized by JTBD)
-- Installation guide for Firefox PMs
+- Full skills catalog (54 skills organized by JTBD, 50% coverage of total plugin)
+- Installation guide for Firefox PMs with section anchor links for direct navigation
 - Release notes for each version
 - FAQ
 
@@ -27,9 +27,8 @@ The site is **version controlled** to prevent accidental overwrites. All changes
    git commit -m "Description of changes"
    git push
    ```
-4. **Deploy:**
-   - **Manual (works now):** `quick deploy . pm-os -y`
-   - **Auto (after allow-listing):** Push to main triggers GitHub Actions deploy
+4. **Auto-deploy:** Push to main triggers GitHub Actions deploy to Quick (repo is allow-listed and working as of 2026-08-12)
+5. **Manual override (if needed):** `quick deploy . pm-os -y`
 
 ### Never Do This
 
@@ -42,25 +41,25 @@ The July 28 → Aug 5 incident happened because another agent deployed from a te
 
 ## Deployment Details
 
-**Current state:** Manual deploy via `quick deploy . pm-os -y`
+**Auto-deploy is live:** GitHub Actions deploys to Quick automatically on push to main (repo was allow-listed 2026-08-12).
 
-**Future state (pending):** Auto-deploy via GitHub Actions on push to main. Blocked on infrastructure allow-listing - repo needs to be added to `gha_repos` in Quick's `tf/prod/main.tf`.
+**GitHub Actions workflow:** `.github/workflows/workflows-quick.deploy.yml` runs on every push to main. Always passes `--yes` flag to allow GitHub service account to overwrite manual deploys.
 
-**GitHub Actions workflow:** `.github/workflows/workflows-quick.deploy.yml` is configured but fails with permission error until allow-listed.
+**Manual deploy (if needed):** `quick deploy . pm-os -y`
 
 ## Site Structure
 
 ```
 pm-os-marketing-site/
 ├── index.html              # The entire site (single-page app)
+├── favicon.png             # Colorful PM OS logo (32x32px)
 ├── CLAUDE.md               # Router to this file
 ├── AGENTS.md               # This file - context for working with the site
 ├── README.md               # Human-facing documentation
+├── .gitignore              # Excludes macOS, editor, and temp files
 └── .github/workflows/
-    └── workflows-quick.deploy.yml  # Auto-deploy (pending allow-listing)
+    └── workflows-quick.deploy.yml  # Auto-deploy on push to main
 ```
-
-**Note:** No favicon.png yet - needs to be added from the original colorful PM OS logo.
 
 ## Permissions
 
@@ -86,6 +85,8 @@ This site is deployed via Mozilla's Quick static hosting. For Quick CLI details,
 
 ## Version History
 
+- **2026-08-13:** Added section anchor links to getting-started page; updated skills catalogue to 27 user-facing skills (54 total in plugin)
+- **2026-08-12:** GitHub Actions auto-deploy configured and working; favicon added
 - **2026-08-08:** Site recovered from July 28 artifact after being overwritten; moved to version control in this repo
 - **2026-07-28:** Original site built with Mozilla purple theme, dark mode, full navigation
 - **Earlier:** Site was deployed from temp directories without version control (caused the overwrite incident)

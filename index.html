@@ -145,6 +145,35 @@ nav {
   display: block;
 }
 
+/* Anchor links for headings */
+.section-anchor {
+  position: relative;
+}
+
+.section-anchor .anchor-link {
+  position: absolute;
+  left: -1.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.25rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.section-anchor:hover .anchor-link {
+  opacity: 1;
+}
+
+.anchor-link:hover {
+  color: var(--accent);
+}
+
+.anchor-link.copied {
+  color: var(--accent);
+}
+
 /* Hero */
 .hero {
   background: var(--aubergine);
@@ -984,7 +1013,12 @@ a:focus-visible, button:focus-visible {
 
       <div class="steps">
         <div class="step">
-          <h3>Step 1: Link GitHub to Mozilla Identity</h3>
+          <div class="section-anchor">
+            <h3 id="step-1-link-github-to-mozilla-identity">
+              <a class="anchor-link" href="#step-1-link-github-to-mozilla-identity" aria-label="Link to this section">#</a>
+              Step 1: Link GitHub to Mozilla Identity
+            </h3>
+          </div>
           <p>Mozilla matches your GitHub username to your work identity through <code>people.mozilla.org</code>.</p>
           <ol>
             <li>Go to <strong>people.mozilla.org</strong> and log in with Mozilla SSO</li>
@@ -995,21 +1029,41 @@ a:focus-visible, button:focus-visible {
         </div>
 
         <div class="step">
-          <h3>Step 2: Request Mozilla GitHub Org Access (File This First!)</h3>
+          <div class="section-anchor">
+            <h3 id="step-2-request-mozilla-github-org-access">
+              <a class="anchor-link" href="#step-2-request-mozilla-github-org-access" aria-label="Link to this section">#</a>
+              Step 2: Request Mozilla GitHub Org Access (File This First!)
+            </h3>
+          </div>
           <p><strong>This takes up to 5 days (usually 1-2).</strong> Do this before anything else. While you wait, work through Steps 3-4.</p>
           <p><a href="https://bugzilla.mozilla.org/enter_bug.cgi?assigned_to=nobody%40mozilla.org&bug_ignored=0&bug_severity=--&bug_status=NEW&bug_type=task&cf_fx_iteration=---&cf_fx_points=---&comment=I%20would%20like%20to%20be%20added%20to%20the%20%60product-management%60%20team%20in%20the%20Mozilla%20org.%0D%0A%0D%0AI%20have%20linked%20my%20GitHub%20ID%20to%20my%20%5Bpeople.mozilla.org%5D%28https%3A%2F%2Fpeople.mozilla.org%29%20profile%20as%20outlined%20in%3A%0D%0Ahttps%3A%2F%2Fwiki.mozilla.org%2FGitHub%2FGHE_SAML_User_FAQ%23People.m.o_linkage_to_GitHub_account%0D%0A%0D%0AName%3A%20%3CYOUR_NAME_HERE%3E%0D%0APeople%20Directory%20Profile%20Link%3A%20%3CLINK_TO_YOUR_PEOPLEMO_ENTRY%3E%0D%0AGitHub%20Team%28s%29%3A%20%60product-management%60%0D%0A&component=Github%3A%20Administration&contenttypemethod=list&contenttypeselection=text%2Fplain&defined_groups=1&filed_via=standard_form&flag_type-4=X&flag_type-607=X&flag_type-803=X&flag_type-864=X&flag_type-936=X&groups=mozilla-employee-confidential&needinfo_from=jwanger%40mozilla.com%2C%20&needinfo_role=other&needinfo_type=needinfo_from&op_sys=Unspecified&priority=--&product=mozilla.org&qa_contact=jbircher%40mozilla.com&rep_platform=Unspecified&short_desc=Requesting%20GitHub%20membership%20to%20the%20product-management%20team%20in%20the%20Mozilla%20org&target_milestone=---&version=other" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">File Bugzilla Ticket (pre-filled template)</a></p>
           <p style="margin-top: 1rem;">Fill in your name and people.mozilla.org profile link, then submit.</p>
         </div>
 
         <div class="step">
-          <h3>Step 3: Install Git and GitHub CLI</h3>
+          <div class="section-anchor">
+            <h3 id="step-3-install-git-and-github-cli">
+              <a class="anchor-link" href="#step-3-install-git-and-github-cli" aria-label="Link to this section">#</a>
+              Step 3: Install Git and GitHub CLI
+            </h3>
+          </div>
           <p><strong>Tip:</strong> You can copy-paste this entire step into Claude Code and let it do most of this for you.</p>
 
-          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Open a terminal</h4>
+          <div class="section-anchor">
+            <h4 id="open-a-terminal" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+              <a class="anchor-link" href="#open-a-terminal" aria-label="Link to this section">#</a>
+              Open a terminal
+            </h4>
+          </div>
           <p><strong>macOS:</strong> Press Cmd+Space, type "Terminal", press Enter. The built-in Terminal app works fine.</p>
           <p><strong>Windows:</strong> Press the Windows key, type "Windows Terminal", press Enter. (On Windows 11 this is pre-installed; on Windows 10 install it from the Microsoft Store.)</p>
 
-          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Install git and the GitHub CLI</h4>
+          <div class="section-anchor">
+            <h4 id="install-git-and-github-cli" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+              <a class="anchor-link" href="#install-git-and-github-cli" aria-label="Link to this section">#</a>
+              Install git and the GitHub CLI
+            </h4>
+          </div>
 
           <p><strong>macOS:</strong></p>
           <p>Step 1: Install Homebrew (Mac's package manager). Paste this one line and press Enter:</p>
@@ -1036,7 +1090,12 @@ gh --version</code></pre>
           <pre><code>git --version
 gh --version</code></pre>
 
-          <h4 style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">Sign in to GitHub from the terminal</h4>
+          <div class="section-anchor">
+            <h4 id="sign-in-to-github" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+              <a class="anchor-link" href="#sign-in-to-github" aria-label="Link to this section">#</a>
+              Sign in to GitHub from the terminal
+            </h4>
+          </div>
           <p>Paste this one line and press Enter:</p>
           <pre><code>gh auth login</code></pre>
           <p><code>gh</code> will ask you a series of questions. Answer them with the arrow keys + Enter:</p>
@@ -1057,7 +1116,12 @@ gh --version</code></pre>
         </div>
 
         <div class="step">
-          <h3>Step 4: Set Up SSH Keys for Mozilla Repos</h3>
+          <div class="section-anchor">
+            <h3 id="step-4-set-up-ssh-keys">
+              <a class="anchor-link" href="#step-4-set-up-ssh-keys" aria-label="Link to this section">#</a>
+              Step 4: Set Up SSH Keys for Mozilla Repos
+            </h3>
+          </div>
           <p><strong>Why this matters:</strong> Mozilla's internal repos require SSH authentication with SSO authorization. Skipping this step causes the "Plugin not found" error in Step 5.</p>
 
           <p><strong>Generate the key</strong> (replace the email with your GitHub account email):</p>
@@ -1100,7 +1164,12 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         </div>
 
         <div class="step">
-          <h3>Step 5: Install the Plugin</h3>
+          <div class="section-anchor">
+            <h3 id="step-5-install-the-plugin">
+              <a class="anchor-link" href="#step-5-install-the-plugin" aria-label="Link to this section">#</a>
+              Step 5: Install the Plugin
+            </h3>
+          </div>
           <p>Make sure Claude Code is up to date (<code>/doctor</code>), then:</p>
           <pre><code>/plugin marketplace add mozilla/internal-aidev-plugins
 /plugin install pm-os-base@internal-aidev-plugins
@@ -1108,20 +1177,35 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         </div>
 
         <div class="step">
-          <h3>Step 6: Run Setup</h3>
+          <div class="section-anchor">
+            <h3 id="step-6-run-setup">
+              <a class="anchor-link" href="#step-6-run-setup" aria-label="Link to this section">#</a>
+              Step 6: Run Setup
+            </h3>
+          </div>
           <p>Personalizes the PM OS to your role, goals, and manager:</p>
           <pre><code>/pm-os-base:setup</code></pre>
           <p><strong>Tip:</strong> Dictate your answers instead of typing for 3-5× more context.</p>
         </div>
 
         <div class="step">
-          <h3>Step 7: Enable Integrations</h3>
+          <div class="section-anchor">
+            <h3 id="step-7-enable-integrations">
+              <a class="anchor-link" href="#step-7-enable-integrations" aria-label="Link to this section">#</a>
+              Step 7: Enable Integrations
+            </h3>
+          </div>
           <p>Set up at minimum: <strong>Atlassian</strong>, <strong>Google Workspace</strong>, and <strong>Slack</strong>.</p>
           <pre><code>/pm-os-base:manage</code></pre>
         </div>
 
         <div class="step">
-          <h3>Step 8: Try Your First Skill</h3>
+          <div class="section-anchor">
+            <h3 id="step-8-try-your-first-skill">
+              <a class="anchor-link" href="#step-8-try-your-first-skill" aria-label="Link to this section">#</a>
+              Step 8: Try Your First Skill
+            </h3>
+          </div>
           <pre><code>/pm-os-base:morning-briefing</code></pre>
           <p>If it works — you're installed.</p>
         </div>
@@ -1350,7 +1434,18 @@ function showTab(tabName) {
 function loadTabFromHash() {
   const hash = window.location.hash.slice(1); // Remove the '#'
   const validTabs = ['overview', 'skills', 'get-started', 'whats-new', 'faq'];
-  const tabToShow = validTabs.includes(hash) ? hash : 'overview';
+
+  // Check if hash is a section anchor (starts with "step-")
+  let tabToShow = 'overview';
+  let sectionId = null;
+
+  if (validTabs.includes(hash)) {
+    tabToShow = hash;
+  } else if (hash.startsWith('step-') || hash.startsWith('open-') || hash.startsWith('install-') || hash.startsWith('sign-in-')) {
+    // Section anchor - show get-started tab
+    tabToShow = 'get-started';
+    sectionId = hash;
+  }
 
   // Show tab without updating hash (to avoid infinite loop)
   document.querySelectorAll('.tab-content').forEach(tab => {
@@ -1362,6 +1457,16 @@ function loadTabFromHash() {
     btn.classList.remove('active');
   });
   document.querySelector(`[data-tab="${tabToShow}"]`)?.classList.add('active');
+
+  // Scroll to section if specified
+  if (sectionId) {
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100); // Small delay to ensure tab is visible
+  }
 }
 
 // Load correct tab on page load
@@ -1369,6 +1474,23 @@ window.addEventListener('DOMContentLoaded', loadTabFromHash);
 
 // Handle browser back/forward buttons
 window.addEventListener('hashchange', loadTabFromHash);
+
+// Anchor link copy-to-clipboard
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('anchor-link')) {
+    e.preventDefault();
+    const url = window.location.origin + window.location.pathname + e.target.getAttribute('href');
+    navigator.clipboard.writeText(url).then(() => {
+      // Show visual feedback
+      e.target.classList.add('copied');
+      setTimeout(() => {
+        e.target.classList.remove('copied');
+      }, 1000);
+    }).catch(err => {
+      console.error('Failed to copy URL:', err);
+    });
+  }
+});
 
 // Skills filtering
 let currentFilter = 'all';

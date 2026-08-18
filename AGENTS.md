@@ -51,12 +51,14 @@ The July 28 → Aug 5 incident happened because another agent deployed from a te
 
 ```
 pm-os-marketing-site/
-├── index.html              # The entire site (single-page app)
-├── favicon.png             # Colorful PM OS logo (32x32px)
-├── CLAUDE.md               # Router to this file
-├── AGENTS.md               # This file - context for working with the site
-├── README.md               # Human-facing documentation
-├── .gitignore              # Excludes macOS, editor, and temp files
+├── index.html                      # The entire site (single-page app)
+├── favicon.png                     # Colorful PM OS logo (32x32px)
+├── people-moz-identities.png       # Screenshot: people.mozilla.org Identities section
+├── people-moz-github-verified.png  # Screenshot: GitHub verified state
+├── CLAUDE.md                       # Router to this file
+├── AGENTS.md                       # This file - context for working with the site
+├── README.md                       # Human-facing documentation
+├── .gitignore                      # Excludes macOS, editor, and temp files
 └── .github/workflows/
     └── workflows-quick.deploy.yml  # Auto-deploy on push to main
 ```

@@ -552,6 +552,21 @@ section {
   padding: 0;
 }
 
+.step pre.sample-output {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.sample-output-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: -0.25rem;
+}
+
 .step ul, .step ol {
   margin-left: var(--space-md);
   margin-bottom: var(--space-sm);
@@ -1155,10 +1170,18 @@ a:focus-visible, button:focus-visible {
           <p>Step 1: Install Homebrew (Mac's package manager). Paste this one line and press Enter:</p>
           <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
           <p>This asks for your <strong>Mac login password</strong> (the one you use to unlock your laptop). <strong>Nothing will appear as you type it</strong> — that's normal. Type, press Enter, wait.</p>
-          <p>If Homebrew prints two lines starting with <code>eval</code> and tells you to run them, do that.</p>
+          <p><strong>Easy to miss:</strong> near the very end of the install output, Homebrew prints a "Next steps" block like this one — <strong>this is just an example, not something to copy from this page.</strong> Scroll up in your own terminal to find your real "Next steps" block:</p>
+          <span class="sample-output-label">Example output — yours will differ</span>
+          <pre class="sample-output"><code>==&gt; Next steps:
+- Run these commands in your terminal to add Homebrew to your PATH:
+    echo &gt;&gt; /Users/yourusername/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' &gt;&gt; /Users/yourusername/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+- Run brew help to get started</code></pre>
+          <p>Copy the <code>echo</code> and <code>eval</code> lines <strong>from your own terminal's output</strong> (the username in the path will be yours, not "yourusername") and run them now — without them, <code>brew</code> won't work in new terminal windows.</p>
           <p>Verify Homebrew is wired up:</p>
           <pre><code>brew --version</code></pre>
-          <p>You should see something like <code>Homebrew 4.x.x</code>. If you get "command not found," close and reopen your terminal, then retry.</p>
+          <p>You should see something like <code>Homebrew 6.x.x</code>. If you get "command not found," close and reopen your terminal, then retry.</p>
 
           <p style="margin-top: var(--space-md);">Step 2: Install git and gh in one line:</p>
           <pre><code>brew install git gh</code></pre>

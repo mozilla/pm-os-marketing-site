@@ -1279,10 +1279,13 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
               Step 5: Install the Plugin
             </h3>
           </div>
-          <p>Make sure Claude Code is up to date (<code>/doctor</code>), then run these three commands in Claude Code <strong>one at a time</strong> — type or paste the first line, press Enter, wait for it to finish, then do the next line:</p>
+          <p><strong>Open your terminal and start Claude Code</strong> by typing <code>claude</code> and pressing Enter:</p>
+          <pre><code>claude</code></pre>
+          <p>This drops you into the Claude Code prompt — <strong>the three commands below go here, not in your regular terminal.</strong> Once you're in, make sure Claude Code is up to date by typing <code>/doctor</code> and pressing Enter, then run these three commands <strong>one at a time</strong> — type or paste the first line, press Enter, wait for it to finish, then do the next line:</p>
           <pre><code>/plugin marketplace add mozilla/internal-aidev-plugins
 /plugin install pm-os-base@internal-aidev-plugins
 /reload-plugins</code></pre>
+          <p><strong>Using the Claude Code desktop app instead of the terminal?</strong> Use its plugin browser (in Settings) to add the marketplace and install the plugin instead of typing these commands — this guide follows the terminal CLI path since it's the most consistent one to write instructions for.</p>
         </div>
 
         <div class="step">
@@ -1516,10 +1519,10 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <h3>How do I update the PM OS when a new version comes out?</h3>
-          <p><strong>Enable auto-updates (recommended):</strong> The PM OS doesn't auto-update by default. Run this once to enable it:</p>
+          <p><strong>Enable auto-updates (recommended):</strong> The PM OS doesn't auto-update by default. Open Claude Code (type <code>claude</code> in your terminal if it's not already running) and run this once to enable it:</p>
           <pre><code>/plugin</code></pre>
-          <p>Navigate to the PM OS entry, select it, and toggle <strong>Auto-update</strong> on. This ensures you get new features, bug fixes, and integration improvements automatically.</p>
-          <p><strong>Manual update:</strong> Run <code>/plugin update pm-os-base@internal-aidev-plugins</code> anytime to pull the latest version.</p>
+          <p>Navigate to the PM OS entry, select it, and toggle <strong>Auto-update</strong> on. This ensures you get new features, bug fixes, and integration improvements automatically. (Using the desktop app? Use its plugin browser in Settings instead.)</p>
+          <p><strong>Manual update:</strong> In Claude Code, run <code>/plugin update pm-os-base@internal-aidev-plugins</code> anytime to pull the latest version.</p>
         </div>
       </div>
     </section>

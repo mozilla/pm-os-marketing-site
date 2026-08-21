@@ -1252,7 +1252,7 @@ ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></pre>
           <pre><code>eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519</code></pre>
 
-          <p style="margin-top: var(--space-md);"><strong>Copy the public key to your clipboard:</strong></p>
+          <p style="margin-top: var(--space-md);"><strong>Copy the public key to your clipboard:</strong> paste the command for your system into your terminal and press Enter. It won't print anything — it silently copies the contents of your key file to your clipboard so you can paste it into GitHub in the next step.</p>
           <p><em>macOS:</em></p>
           <pre><code>pbcopy < ~/.ssh/id_ed25519.pub</code></pre>
 
@@ -1279,7 +1279,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
               Step 5: Install the Plugin
             </h3>
           </div>
-          <p>Make sure Claude Code is up to date (<code>/doctor</code>), then:</p>
+          <p>Make sure Claude Code is up to date (<code>/doctor</code>), then run these three commands in Claude Code <strong>one at a time</strong> — type or paste the first line, press Enter, wait for it to finish, then do the next line:</p>
           <pre><code>/plugin marketplace add mozilla/internal-aidev-plugins
 /plugin install pm-os-base@internal-aidev-plugins
 /reload-plugins</code></pre>

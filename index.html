@@ -1143,12 +1143,11 @@ a:focus-visible, button:focus-visible {
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-3-install-git-and-github-cli">
-              <a class="anchor-link" href="#step-3-install-git-and-github-cli" aria-label="Link to this section">#</a>
-              Step 3: Install Git and GitHub CLI
+            <h3 id="step-3-install-claude-code">
+              <a class="anchor-link" href="#step-3-install-claude-code" aria-label="Link to this section">#</a>
+              Step 3: Install Claude Code
             </h3>
           </div>
-          <p><strong>Tip:</strong> You can copy-paste this entire step into Claude Code and let it do most of this for you.</p>
 
           <div class="section-anchor">
             <h4 id="open-a-terminal" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
@@ -1160,14 +1159,13 @@ a:focus-visible, button:focus-visible {
           <p><strong>Windows:</strong> Press the Windows key, type "Windows Terminal", press Enter. (On Windows 11 this is pre-installed; on Windows 10 install it from the Microsoft Store.)</p>
 
           <div class="section-anchor">
-            <h4 id="install-git-and-github-cli" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
-              <a class="anchor-link" href="#install-git-and-github-cli" aria-label="Link to this section">#</a>
-              Install git and the GitHub CLI
+            <h4 id="install-claude-code-cli" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+              <a class="anchor-link" href="#install-claude-code-cli" aria-label="Link to this section">#</a>
+              Install Claude Code
             </h4>
           </div>
 
-          <p><strong>macOS:</strong></p>
-          <p>Step 1: Install Homebrew (Mac's package manager). Paste this one line and press Enter:</p>
+          <p><strong>macOS:</strong> first install Homebrew (Mac's package manager). Paste this one line and press Enter:</p>
           <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
           <p>This asks for your <strong>Mac login password</strong> (the one you use to unlock your laptop). <strong>Nothing will appear as you type it</strong> — that's normal. Type, press Enter, wait.</p>
           <p><strong>Easy to miss:</strong> near the very end of the install output, Homebrew prints a "Next steps" block like this one — <strong>this is just an example, not something to copy from this page.</strong> Scroll up in your own terminal to find your real "Next steps" block:</p>
@@ -1182,8 +1180,44 @@ a:focus-visible, button:focus-visible {
           <p>Verify Homebrew is wired up:</p>
           <pre><code>brew --version</code></pre>
           <p>You should see something like <code>Homebrew 6.x.x</code>. If you get "command not found," close and reopen your terminal, then retry.</p>
+          <p style="margin-top: var(--space-md);">Now install Claude Code:</p>
+          <pre><code>brew install --cask claude-code</code></pre>
+          <p>Verify it installed:</p>
+          <pre><code>claude --version</code></pre>
+          <p>You should see something like <code>X.X.X (Claude Code)</code>.</p>
 
-          <p style="margin-top: var(--space-md);">Step 2: Install git and gh in one line:</p>
+          <p style="margin-top: var(--space-md);"><strong>Windows:</strong> in PowerShell, paste this one line:</p>
+          <pre><code>winget install Anthropic.ClaudeCode</code></pre>
+          <p>If <code>winget</code> is not recognized, run this instead:</p>
+          <pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+          <p><strong>Close and reopen your terminal</strong>, then verify:</p>
+          <pre><code>claude --version</code></pre>
+
+          <div style="margin-top: var(--space-lg); padding: var(--space-md); background: linear-gradient(135deg, rgba(144, 89, 255, 0.1), rgba(117, 66, 229, 0.1)); border: 1px solid var(--accent); border-radius: 0.75rem;">
+            <h4 style="margin-bottom: var(--space-sm); color: var(--accent);">Claude Code is installed — let it drive the rest</h4>
+            <p style="color: var(--text-secondary);">Open Claude Code by typing <code>claude</code> and pressing Enter, then paste this into the chat:</p>
+            <pre style="margin-top: var(--space-sm); background: rgba(0, 0, 0, 0.05); border: 1px solid var(--border);"><code>"I'm setting up the PM OS for Firefox. Read https://pm-os.quick.mozilla.cloud/ starting at Step 4 and walk me through installing git, the GitHub CLI, SSH keys, and the plugin — run the commands for me and tell me when you need me to do something manually, like signing in through a browser."</code></pre>
+            <p style="color: var(--text-secondary); margin-top: var(--space-sm);"><strong>If Claude says it can't open that link,</strong> select and copy Steps 4 through 6 below (from "Install Git and GitHub CLI" through "Install the Plugin") and paste that text into the chat instead of the URL.</p>
+            <p style="color: var(--text-secondary); margin-top: var(--space-sm);">Claude will run most of the remaining commands for you. You'll still need to do a few things yourself when it asks — signing into GitHub through the browser and authorizing Mozilla SSO (Step 4), and authorizing SSO on your SSH key (Step 5). Prefer to do it by hand instead? The full instructions continue below.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="section-anchor">
+            <h3 id="step-4-install-git-and-github-cli">
+              <a class="anchor-link" href="#step-4-install-git-and-github-cli" aria-label="Link to this section">#</a>
+              Step 4: Install Git and GitHub CLI
+            </h3>
+          </div>
+
+          <div class="section-anchor">
+            <h4 id="install-git-and-github-cli" style="font-size: 1.125rem; font-weight: 600; margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+              <a class="anchor-link" href="#install-git-and-github-cli" aria-label="Link to this section">#</a>
+              Install git and the GitHub CLI
+            </h4>
+          </div>
+
+          <p><strong>macOS:</strong> in your terminal, paste this one line:</p>
           <pre><code>brew install git gh</code></pre>
           <p>This takes 1–5 minutes. When done, verify both:</p>
           <pre><code>git --version
@@ -1226,12 +1260,12 @@ gh --version</code></pre>
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-4-set-up-ssh-keys">
-              <a class="anchor-link" href="#step-4-set-up-ssh-keys" aria-label="Link to this section">#</a>
-              Step 4: Set Up SSH Keys for Mozilla Repos
+            <h3 id="step-5-set-up-ssh-keys">
+              <a class="anchor-link" href="#step-5-set-up-ssh-keys" aria-label="Link to this section">#</a>
+              Step 5: Set Up SSH Keys for Mozilla Repos
             </h3>
           </div>
-          <p><strong>Why this matters:</strong> Mozilla's internal repos require SSH authentication with SSO authorization. Skipping this step causes the "Plugin not found" error in Step 5.</p>
+          <p><strong>Why this matters:</strong> Mozilla's internal repos require SSH authentication with SSO authorization. Skipping this step causes the "Plugin not found" error in Step 6.</p>
 
           <p><strong>Generate the key</strong> (replace the email with your GitHub account email):</p>
           <pre><code>ssh-keygen -t ed25519 -C "your-github-account-email@example.com"</code></pre>
@@ -1274,9 +1308,9 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-5-install-the-plugin">
-              <a class="anchor-link" href="#step-5-install-the-plugin" aria-label="Link to this section">#</a>
-              Step 5: Install the Plugin
+            <h3 id="step-6-install-the-plugin">
+              <a class="anchor-link" href="#step-6-install-the-plugin" aria-label="Link to this section">#</a>
+              Step 6: Install the Plugin
             </h3>
           </div>
           <p><strong>Open your terminal and start Claude Code</strong> by typing <code>claude</code> and pressing Enter:</p>
@@ -1290,9 +1324,9 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-6-run-setup">
-              <a class="anchor-link" href="#step-6-run-setup" aria-label="Link to this section">#</a>
-              Step 6: Run Setup
+            <h3 id="step-7-run-setup">
+              <a class="anchor-link" href="#step-7-run-setup" aria-label="Link to this section">#</a>
+              Step 7: Run Setup
             </h3>
           </div>
           <p>Personalizes the PM OS to your role, goals, and manager:</p>
@@ -1302,9 +1336,9 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-7-enable-integrations">
-              <a class="anchor-link" href="#step-7-enable-integrations" aria-label="Link to this section">#</a>
-              Step 7: Enable Integrations
+            <h3 id="step-8-enable-integrations">
+              <a class="anchor-link" href="#step-8-enable-integrations" aria-label="Link to this section">#</a>
+              Step 8: Enable Integrations
             </h3>
           </div>
           <p>Set up at minimum: <strong>Atlassian</strong>, <strong>Google Workspace</strong>, and <strong>Slack</strong>.</p>
@@ -1313,9 +1347,9 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <div class="section-anchor">
-            <h3 id="step-8-try-your-first-skill">
-              <a class="anchor-link" href="#step-8-try-your-first-skill" aria-label="Link to this section">#</a>
-              Step 8: Try Your First Skill
+            <h3 id="step-9-try-your-first-skill">
+              <a class="anchor-link" href="#step-9-try-your-first-skill" aria-label="Link to this section">#</a>
+              Step 9: Try Your First Skill
             </h3>
           </div>
           <pre><code>/pm-os-base:morning-briefing</code></pre>
@@ -1472,8 +1506,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <div class="step">
           <h3>I get "Plugin 'pm-os-base' not found in marketplace"</h3>
           <p>This means Claude Code can't access the <code>mozilla/internal-aidev-plugins</code> repo. Most common cause: <strong>you haven't set up SSH keys yet</strong>.</p>
-          <p>Complete <strong>Step 4: Set Up SSH Keys for Mozilla Repos</strong> in Getting Started, especially the <strong>Configure SSO → Authorize</strong> step. Without SSO authorization on your SSH key, Claude Code can read the marketplace but can't clone the actual plugin repo.</p>
-          <p>After completing Step 4, retry <code>/plugin install pm-os-base@internal-aidev-plugins</code>.</p>
+          <p>Complete <strong>Step 5: Set Up SSH Keys for Mozilla Repos</strong> in Getting Started, especially the <strong>Configure SSO → Authorize</strong> step. Without SSO authorization on your SSH key, Claude Code can read the marketplace but can't clone the actual plugin repo.</p>
+          <p>After completing Step 5, retry <code>/plugin install pm-os-base@internal-aidev-plugins</code>.</p>
         </div>
 
         <div class="step">
@@ -1483,7 +1517,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <div class="step">
           <h3>Git asks for a password during install</h3>
-          <p>You skipped <code>gh auth setup-git</code> in Step 3. Run it now.</p>
+          <p>You skipped <code>gh auth setup-git</code> in Step 4. Run it now.</p>
         </div>
 
         <div class="step">

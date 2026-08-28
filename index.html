@@ -1369,6 +1369,34 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="steps">
         <div class="step">
+          <h3>Version 0.3.2 — August 26, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Notion integration</strong> — MCP usage patterns and six silent-data-loss DDL traps to avoid when scripting against Notion</li>
+            <li><strong><code>/trust-review</code></strong> — Reviews AI-generated work for trust/verification gaps before it ships</li>
+            <li><strong><code>/done</code> Step 8: plugin-version check</strong> — Flags when your installed PM OS is behind the marketplace's latest version during end-of-session wrap-up</li>
+          </ul>
+          <p><strong>Fixes:</strong></p>
+          <ul>
+            <li><strong>Hook-blocking incident resolved</strong> — Telemetry sync now ships as a default-on, self-gated hook built into the plugin, replacing the hand-written <code>settings.json</code> wiring that could block every prompt across every session sharing that config</li>
+            <li>Atlassian cloud ID lookup — fixed an incorrect response-shape assumption</li>
+            <li><code>/audit-roadmap-hygiene</code> — corrected references to use the real Atlassian MCP tool names</li>
+            <li><code>/contribute</code> — fixed a zsh word-splitting bug that could leak a raw API error to stdout</li>
+            <li>Shell snippet portability — documented bash/zsh divergences and added an automated hazard scan to <code>/audit-skills</code></li>
+            <li><code>push-config</code> — fixed the memory backup path and excluded Python bytecode from the mirror</li>
+            <li><code>/audit-skills --personal</code> — new flag to include your own forked skills in the audit, not just plugin-bundled ones</li>
+          </ul>
+          <p><strong>Documentation:</strong></p>
+          <ul>
+            <li>Google Docs — migrated to <code>fetch_file</code>, documented tab/comment API limits, and how to preserve comment anchors through an edit</li>
+            <li>Shared document editing — caution about concurrent edits and markdown-import spacing</li>
+            <li>Zoom/Runlayer — fixed setup steps and terminal-support docs</li>
+            <li>Google Workspace — warned about a stderr banner that can corrupt ad-hoc script output</li>
+            <li><code>/morning-briefing</code> — added a Jira query contract to Step 5b</li>
+          </ul>
+        </div>
+
+        <div class="step">
           <h3>Version 0.3.1 — August 13, 2026</h3>
           <p><strong>Documentation & Quick Site Release:</strong></p>
           <ul>

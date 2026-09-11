@@ -741,7 +741,7 @@ a:focus-visible, button:focus-visible {
 
       <div style="margin-top: var(--space-xl);">
         <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: var(--space-sm);">Pre-Built Skills to Make PM Life Easier</h3>
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 54 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 63 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
         <div class="features">
           <div class="feature-card">
             <h3>/write-experiment-brief</h3>
@@ -796,7 +796,7 @@ a:focus-visible, button:focus-visible {
     <section class="section-contained">
       <div class="section-header">
         <h2>Skills Reference</h2>
-        <p>Complete catalog of 54 skills, organized by job to be done. Use the filters to browse by category or team.</p>
+        <p>A selection of the 63 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
       </div>
 
       <div class="skills-browser">
@@ -1368,6 +1368,36 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       </div>
 
       <div class="steps">
+        <div class="step">
+          <h3>Version 0.4.0 — September 11, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong><code>/diagnose-voice</code> and <code>/rewrite-voice</code></strong> — Check a draft against the team Voice Guide and its AI-slop defaults. You get line-level findings with quotes and counts, not a vibes assessment, and <code>/rewrite-voice</code> then applies the fixes. The stakeholder-facing skills now call this floor rather than each restating a house style</li>
+            <li><strong><code>/write-confluence-page</code> and <code>/refresh-confluence-page</code></strong> — Confluence authoring with correct heading hierarchy, tables, and panels. The refresh path is archive-first and rebuilds a Jira-backed status page without losing inline comments or overwriting edits made while the run was in flight</li>
+            <li><strong><code>/manage</code> is now a dispatcher over three dashboards</strong> — <code>/manage-integrations</code> and <code>/manage-hooks</code> were carved out of it, joining the already-existing <code>/manage-forks</code>. Each owns its own inputs and actions, and <code>/manage</code> walks all three, so existing invocations keep working</li>
+            <li><strong>Unwrapped deck skills opened to the whole team</strong> — <code>/growth-audit-unwrapped-deck</code> finds experiments with no slide and slides that disagree with their Jira readouts; <code>/growth-create-unwrapped-slide</code> writes one from the brief and readout</li>
+            <li><strong>Metric Hub MCP wired into the glean module</strong> — The module told Claude to check Metric Hub first for any DAU, MAU, retention, or activation question, but nothing in it ever set that server up. Setup now covers both servers in all three editor formats</li>
+            <li><strong><code>detect-stale-hook-wiring</code> hook</strong> — Default-on. 0.3.2 removed the opt-in hook mechanism that could block every prompt, but did nothing for a config that already held a stray entry pointing at the same nonexistent path. This one finds it and nudges</li>
+          </ul>
+          <p><strong>Fixes:</strong></p>
+          <ul>
+            <li><strong><code>/manage-integrations</code> accuracy</strong> — Four rounds of detection fixes, including three rows that reported working setups as broken</li>
+            <li>Bugzilla client moved to REST — XML-RPC is gone from bugzilla.mozilla.org — plus a Python venv recipe that actually runs</li>
+            <li>Zoom — corrected the transcript field path, clarified the three failure modes, and added the calendar two-step, an email fallback, and the permission flags</li>
+            <li><code>block-secrets-read</code> — fixed the <code>.environment</code> false positive and extended matching to Windows readers, search tools, and both path separators</li>
+            <li><code>push-config</code> — resolved an unsubstituted placeholder, covered clones already holding a key, and excluded per-module credential files from the backup</li>
+            <li><code>/morning-briefing</code> — reaches past-day calendar windows and requires competitor source links</li>
+            <li><code>/roadmap-status-update</code> — stops reading a meta bug's own status as the signal</li>
+            <li>Team-layer drift — workspace edits to <code>teams/</code> were invisible in both directions; now detected</li>
+            <li>Forking docs — removed the false claim that forking a skill into <code>Personal/</code> auto-loads it. It does not; it needs a symlink</li>
+          </ul>
+          <p><strong>Team knowledge:</strong></p>
+          <ul>
+            <li>89 new files across the <code>growth</code> and <code>hnt</code> team layers — experiment brief archives, telemetry baselines, retention queries, and measurement notes. None of it loads unless you are on those teams</li>
+          </ul>
+          <p>Skills 55 → 63. Default-on hooks 9 → 10. Integrations unchanged at 15. <a href="https://github.com/mozilla/internal-aidev-plugins/blob/main/plugins/pm-os-base/RELEASE_NOTES_0.4.0.md">Full release notes</a></p>
+        </div>
+
         <div class="step">
           <h3>Version 0.3.2 — August 26, 2026</h3>
           <p><strong>New:</strong></p>

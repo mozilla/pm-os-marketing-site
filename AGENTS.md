@@ -6,7 +6,7 @@ Marketing and documentation site for the PM OS plugin, deployed to **[pm-os.quic
 
 This site is the public-facing documentation and marketing page for the PM OS plugin. It includes:
 - Overview of what PM OS is and how it works
-- Full skills catalog (54 skills organized by JTBD, 50% coverage of total plugin)
+- Skills catalog organized by JTBD — 27 cards on the site, against 63 skills in the plugin as of 0.4.0. It is a selection, not the full list; when the plugin count moves, update both the stated number and the cards.
 - Installation guide for Firefox PMs with section anchor links for direct navigation
 - Release notes for each version
 - FAQ

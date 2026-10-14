@@ -741,7 +741,7 @@ a:focus-visible, button:focus-visible {
 
       <div style="margin-top: var(--space-xl);">
         <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: var(--space-sm);">Pre-Built Skills to Make PM Life Easier</h3>
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 70 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 73 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
         <div class="features">
           <div class="feature-card">
             <h3>/write-experiment-brief</h3>
@@ -796,7 +796,7 @@ a:focus-visible, button:focus-visible {
     <section class="section-contained">
       <div class="section-header">
         <h2>Skills Reference</h2>
-        <p>A selection of the 70 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
+        <p>A selection of the 73 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
       </div>
 
       <div class="skills-browser">
@@ -1368,6 +1368,32 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       </div>
 
       <div class="steps">
+        <div class="step">
+          <h3>Version 0.6.0 — October 14, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Security hardening, five fixes at once</strong> — The BigQuery client is now read-only with a 100 GB cost cap and a dry-run check before every query. The three persona subagents (Data Science Skeptic, Engineering Lead, Email Writer) can no longer send messages or write anywhere — they read briefs, they don't act. A documented way around Runlayer's Zoom output scanner was removed. Third-party MCP packages (Trello, Figma, Atlassian) are now pinned to exact, vetted versions instead of installing whatever's newest at launch. And seven skills that read outside content before their first check-in with you now explicitly can't send email, post to Jira/Confluence/GitHub, or share a Drive file on their own</li>
+            <li><strong>Firefox User Research Archive access</strong> — Wired into five skills (<code>/write-experiment-brief</code>, <code>/generate-hypotheses</code>, <code>/estimate-impact</code>, <code>/review-design</code>, <code>/write-prototype-brief</code>), so past user research surfaces before you draft</li>
+            <li><strong><code>/fi-weekly-update</code></strong> — Program board updates for the First Impressions team</li>
+            <li><strong><code>/orient-pm-os</code></strong> replaces <code>/pm-os-overview</code> — Answers both "how is this organized" and "what's available to me," with clearer boundaries against <code>/setup</code>, <code>/manage-integrations</code>, and <code>/manage-forks</code></li>
+            <li><strong>Google Workspace integrations split out individually</strong> — Gmail, Calendar, Docs, Drive, Sheets, and Slides each now register as their own integration via Runlayer MCP, alongside the existing combined Google Workspace option</li>
+            <li><strong>First real CI for the plugin</strong>, plus a context-budget nudge that suggests a fresh session once you're deep into a long one (configurable, never blocks)</li>
+          </ul>
+          <p><strong>Fixes:</strong></p>
+          <ul>
+            <li>The "release" channel concept is now called "marketplace," matching what it actually is since 0.5.0 dropped versioning</li>
+            <li><code>/merge-context</code> and <code>/done</code> now find your Mozilla clone by matching its remote URL, not by assuming it's named <code>upstream</code> — works whether you call it <code>origin</code> or <code>upstream</code>, and degrades gracefully with no clone at all</li>
+            <li><code>/update</code>'s update check stopped reporting "update available" when nothing had actually changed</li>
+            <li><code>/push-config</code> keeps colleague pages out of your backup by default</li>
+            <li>Growth's weekly-brief and weeknote skills: dropped dead Confluence references and fixed a report section that could vanish on a narrow run</li>
+          </ul>
+          <p><strong>Team knowledge:</strong></p>
+          <ul>
+            <li>29 files touched across the <code>growth</code> and <code>hnt</code> team layers (2 new, 27 updated) — Nimbus/platform-constraint corrections, web notification and referral-measurement baselines, and New Tab pinned-shortcut and user-research findings. None of it loads unless you are on those teams</li>
+          </ul>
+          <p>Skills 70 → 73. Integrations 15 → 22 (six Google Workspace services split out individually, plus the Firefox Research Archive). Default-on hooks 10 → 11. <a href="https://github.com/mozilla/internal-aidev-plugins/blob/main/plugins/pm-os-base/RELEASE_NOTES_0.6.0.md">Full release notes</a></p>
+        </div>
+
         <div class="step">
           <h3>Version 0.5.0 — September 25, 2026</h3>
           <p><strong>New:</strong></p>

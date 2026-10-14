@@ -1,4 +1,4 @@
-<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"capabilities":{"assets":"assets.hcOK0ALv.js","comments":"comments.D1Mkjxge.js","db":"db.CeV_J5G-.js","downloads":"downloads.BXsoAvg9.js","mcp":"mcp.CYSdpjo0.js","permissions":"permissions.DdITF2Mk.js","sample":"sample.DpdXn9di.js","self":"self.BN4be5De.js","user":"user.Cr_h1ETf.js"},"transforms":"_transforms.VaITkagF.js","comments":"_comments.CNSvmFji.js","translate":"_translate.BOzFH2D9.js"}</script><script>(function(){"use strict";var ne=["light","dark","system"];function oe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function W(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function se(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&ne.includes(n)}function ie(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}var Y=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ae={sample:"sample"};function x(){const e=new Uint8Array(20);try{crypto.getRandomValues(e)}catch{for(let n=0;n<e.length;n++)e[n]=Math.floor(Math.random()*256)}let t="";for(const n of e)t+=(n%36).toString(36);return t}function ce(e,t){const n=r=>{const o={path:r},i=r.split("/");return{id:i[i.length-1],path:r,get:()=>t("get",[o]),set:g=>t("set",[o,g]),update:g=>t("update",[o,g]),delete:()=>t("delete",[o]),acquire:g=>t("acquire",[o,g]),onSnapshot:(g,y)=>t("subscribe",[o,g,y]),collection:g=>a(r+"/"+String(g))}},u=r=>({where:(o,i,g)=>u({...r,where:[...r.where??[],{f:String(o),op:String(i),v:g}]}),orderBy:(o,i)=>u({...r,orderBy:{f:String(o),dir:i===void 0?"asc":String(i)}}),limit:o=>u({...r,limit:Number(o)}),get:()=>t("query",[r]),onSnapshot:(o,i)=>t("subscribe",[r,o,i])}),a=r=>({...u({collection:r}),path:r,doc:o=>n(r+"/"+(o===void 0?x():String(o))),add:o=>{const i=n(r+"/"+x());return Promise.resolve(i.set(o)).then(()=>i)}});e.doc=r=>n(String(r)),e.collection=r=>a(String(r))}function J(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let o=0;o<t.length;o++){const i=t[o];if(i&&i.matches&&i.matches("a[href],area[href]")){n=i;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const u=n.getAttribute("href");if(!u)return;let a,r;try{a=new URL(u,document.baseURI),r=new URL(document.baseURI).origin}catch{return}if((a.protocol==="http:"||a.protocol==="https:")&&a.origin!==r){e.preventDefault();const o=(n.getAttribute("target")??document.querySelector("base[target]")?.getAttribute("target")??"").toLowerCase(),i=e.type==="auxclick"||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||!["","_self","_top","_parent"].includes(o);parent.postMessage({__frame_nav:!0,url:a.href,newTab:i},"*")}}var G={};function I(e){if(window===top)return;const t=Date.now();t-(G[e]||0)<500||(G[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}var le=2e3,V=["wheel","touchstart","touchmove","keydown","pointerdown"],X=0;function ue(e){e.isTrusted&&(X=Date.now())}function fe(){addEventListener("click",J,!0),addEventListener("auxclick",J,!0)}function de(){for(let e=0;e<V.length;e++)addEventListener(V[e],ue,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-X<le&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}var q="__frame_scroll",me=150,pe=310,ge=160,he=3e4;function ve(){let e=0,t=!1,n=!1,u=!1,a=0,r=null;const o=d=>{try{sessionStorage.setItem(q,JSON.stringify({y:d}))}catch{}},i=()=>{if(clearTimeout(e),r===null)return;const d=r;r=null,o(d)},g=()=>{if(t){t=!1;return}n=!0,r=scrollY,clearTimeout(e),e=setTimeout(i,me)};try{addEventListener("scroll",g,{passive:!0}),addEventListener("pagehide",i)}catch{}const y=()=>{let d;try{d=sessionStorage.getItem(q)}catch{return null}if(d===null)return null;let l;try{l=JSON.parse(d)}catch{l=null}const p=l?.y;if(!(typeof p=="number"&&Number.isFinite(p)&&p>=0)){try{sessionStorage.removeItem(q)}catch{}return null}return p};let c=!1;const f=d=>{try{const l=scrollY;scrollTo({top:d,left:0,behavior:"instant"}),a=d,u=!0,clearTimeout(e),r=null,o(d);const p=scrollY;p!==l&&(t=!0),p!==d&&!c&&(c=!0,addEventListener("load",()=>{try{if(scrollY===p){const v=y();f(v!==null?v:a)}}catch{}},{once:!0}))}catch{}},m=()=>{try{return!!location.hash}catch{return!0}};let h=!1;const _=()=>{try{if(h||innerWidth>pe||innerHeight>ge)return;h=!0;const d=Date.now(),l=()=>{try{removeEventListener("resize",l)}catch{}if(Date.now()-d>he||n||m())return;const p=y();f(p!==null?p:a)};addEventListener("resize",l)}catch{}};let w=!1,S=!1;return{restore(){if(w||(w=!0,m()))return;const d=y();d!==null&&(f(d),_())},promoted(){if(S||(S=!0,m()))return;const d=y();d!==null?(f(d),_()):u&&f(a)}}}function _e(e,t,n){const u=[...t.values()].filter(a=>a.targets.some(r=>r.startsWith(e+".")));return{wrap(a,r){const o=`${e}.${a}`,i=u.filter(g=>g.targets.includes(o));return i.length===0?(...g)=>{try{return r(...g)}catch(y){return Promise.reject(y)}}:(...g)=>{let y=g;for(const f of i){const m=f.module.parameters;if(m)try{y=m(y)}catch{return Promise.reject({code:"transform_error",id:f.id,scope:e,message:"parameters transform failed"})}}let c;try{c=r(...y)}catch(f){c=Promise.reject(f)}return c.then(f=>{for(let m=i.length-1;m>=0;m--){const h=i[m],_=h.module.returns;if(_)try{f=_(f)}catch{return n({id:h.id,scope:e,leg:"returns"}),f}}return f},f=>{for(let m=i.length-1;m>=0;m--){const h=i[m],_=h.module.throws;if(_)try{f=_(f)}catch{return n({id:h.id,scope:e,leg:"throws"}),Promise.reject(f)}}return Promise.reject(f)})}}}}function ye(e,t,n,u=()=>{}){const a=new Set(e.changes??[]),r=new Map;for(const o of a){const i=t[o];i&&r.set(o,i)}return{contract:e.contract,changes:a,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:r,shellOrigin:n.shellOrigin,mount:n.mount,pipe:o=>_e(o,r,u)}}var Ae="modulepreload",Re=function(e){return"/"+e},je={},be=function(t,n,u){let a=Promise.resolve();function r(o){const i=new Event("vite:preloadError",{cancelable:!0});if(i.payload=o,window.dispatchEvent(i),!i.defaultPrevented)throw o}return a.then(o=>{for(const i of o||[])i.status==="rejected"&&r(i.reason);return t().catch(r)})};(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let u=0;for(let a=0;a<n.length;a++){const r=n[a];try{e(t,r,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[r]}catch{}try{e(t,r,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[r]=="function"&&u++}if(u&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:u},"*")}catch{}})();var Ee=1e4,we=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function Q(e){for(const t of we)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var k=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),D=window.__FRAME_PREAMBLE?.transforms,z=window.__FRAME_PREAMBLE?.comments,B=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,Se=/^[a-z][a-z0-9_-]{0,63}$/,Z=null,M=null;function $(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var F=!1;function ee(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}var te=256,P=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}}),db:Object.assign(Object.create(null),{subscribe:{handlerArg:1,errArg:2}})}),L=new Map;function re(e,t){const n=L.get(e);if(!n)return;const u=Object.assign(Object.create(null),t);Object.assign(n.impl,u),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const a=n.queue;n.queue=[];for(const r of a){const o=u[r.method];if(o)if(P[e]?.[r.method])try{r.resolve(o(...r.args))}catch{T(r,P[e][r.method],{code:"transform_error",message:`${e}.${r.method} rejected its arguments`})}else o(...r.args).then(r.resolve,r.reject);else{const i={code:"capability_removed",message:`${e}.${r.method} is not in this runtime`},g=P[e]?.[r.method];if(g){T(r,g,i);continue}r.reject(i)}}}function Oe(e,t){const n=L.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const u=n.queue;n.queue=[];for(const a of u){const r=P[e]?.[a.method];if(r){T(a,r,t);continue}a.reject(t)}}function N(e,t){const n=Y[e];if(!n){Oe(e,t);return}re(e,Object.fromEntries(Object.entries(n).map(([u,a])=>[u,()=>Promise.resolve(a)])))}function T(e,t,n){if(e.syncState?.dead)return;const u=t.errArg===void 0?void 0:e.args[t.errArg],a=t.errArg===void 0?e.args[t.handlerArg]:u;typeof a=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{a(t.errArg===void 0?{type:"error",error:n}:n)}catch(r){ie(r)}})}var H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){fe(),de();let e=null;try{e=ve()}catch{}const t=H?.value??{};$(window,"claude",t);const n=c=>{const f={impl:Object.create(null),queue:[]};L.set(c,f);const m=f.impl,h=d=>({code:"queue_overflow",message:`${c}.${d}: pre-init call queue is full`}),_=(d,l)=>{if(f.queue.length>=te){const p=Y[c];return p&&d in p?Promise.resolve(p[d]):Promise.reject(h(d))}return new Promise((p,v)=>{f.queue.push({method:d,args:l,resolve:p,reject:v})})},w=ae[c],S=new Proxy(w===void 0?m:(()=>{}),{apply:(d,l,p)=>{const v=w,E=m[v]??m.__settled;return E?E(...p):_(v,p)},get:(d,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(w!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const p=P[c]?.[l];return p?(...v)=>{if(typeof v[p.handlerArg]!="function")throw new TypeError(`${c}.${l} requires a handler function`);const E=m[l];if(E)return E(...v);if(m.__settled){const b={dead:!1},U={args:[...v],syncState:b};return m.__settled().catch(s=>T(U,p,s)),()=>{b.dead=!0}}if(f.queue.length>=te){const b={dead:!1};return T({args:[...v],syncState:b},p,h(l)),()=>{b.dead=!0}}let A=null;const R={dead:!1};return f.queue.push({method:l,args:v,resolve:b=>{A=typeof b=="function"?b:null,R.dead&&A?.()},reject:()=>{},syncState:R}),()=>{R.dead=!0,A?.()}}:(...v)=>{const E=m[l]??m.__settled;return E?E(...v):_(l,v)}},set:()=>!1});c==="db"&&ce(m,(d,l)=>S[d](...l)),$(t,c,S)};for(const c of Object.keys(k)){if(t[c]!==void 0){$(t,c,t[c]);continue}n(c)}let u=null,a=null,r=0;const o=c=>{c.source!==parent||!Q(c.origin)||oe(c.data)&&(u=c.data.__frame_init,M=c.origin,removeEventListener("message",o),clearTimeout(r),a?.())};addEventListener("message",o),parent.postMessage({__frame_connect:!0},"*");const i=new Promise(c=>{a=c,r=setTimeout(()=>{removeEventListener("message",o),c()},Ee)}),g=document.readyState==="loading"?new Promise(c=>document.addEventListener("DOMContentLoaded",()=>c(),{once:!0})):Promise.resolve();g.then(()=>{try{e?.restore()}catch{}});const y=c=>{if(!(c.source!==parent||!Q(c.origin))&&W(c.data)){removeEventListener("message",y);try{e?.promoted()}catch{}}};addEventListener("message",y),i.then(async()=>{if(!u||!M){for(const s of L.keys())N(s,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}ee(u.theme);const c=M;let f=!1,m=!1;addEventListener("message",s=>{if(s.source!==parent||s.origin!==c)return;se(s.data)&&ee(s.data.__frame_theme.theme);const O=s.data?.__fc_mode;O&&typeof O=="object"&&!f&&z&&C.test(z)&&(f=!0,h(z).then(K=>K.install?.(c,O.on===!0)).catch(()=>{}));const j=s.data?.__ft_cmd;j&&typeof j=="object"&&!m&&B&&C.test(B)&&(m=!0,h(B).then(K=>K.install?.(c,j)).catch(()=>{}))});const h=s=>be(()=>import("/_runtime/"+s),void 0),_=Object.keys(u.capabilities??{});for(const s of _)Object.hasOwn(k,s)||Se.test(s)&&t[s]===void 0&&(n(s),N(s,{code:"capability_disabled",message:"capability not in this runtime generation"}));const w=_.filter(s=>Object.hasOwn(k,s)).map(s=>[s,k[s]]).filter(s=>typeof s[1]=="string"&&C.test(s[1])),[S,...d]=await Promise.allSettled([D&&C.test(D)?h(D):Promise.resolve({}),...w.map(([,s])=>h(s))]),l=M;Z=ye(u,S.status==="fulfilled"&&S.value?.TRANSFORMS||{},{shellOrigin:l,mount:re},s=>parent.postMessage({__frame_cap_telemetry:s},l));const p=s=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:s}},l),v=Z;d.forEach((s,O)=>{const j=w[O][0];if(s.status!=="fulfilled"){p(j);return}try{s.value?.install?.(v)}catch{p(j)}});for(const[s,O]of L)if(!(O.queue.length===0&&Object.keys(O.impl).length>0)){if(_.includes(s)){N(s,{code:"capability_disabled",message:"capability not available in this session"});continue}N(s,{code:"not_granted",message:"capability not available in this session"})}await g,parent.postMessage({__frame_ready:!0},M);let E=-1,A=0;const R=()=>{A=0;const s=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);s!==E&&(E=s,parent.postMessage({__frame_size:!0,h:s},l))},b=()=>{A||(A=setTimeout(R,200))},U=new ResizeObserver(b);U.observe(document.documentElement),document.body&&U.observe(document.body),document.addEventListener("load",b,!0),document.fonts?.ready.then(b,()=>{}),addEventListener("beforeprint",()=>{E=-1,R()}),b(),addEventListener("message",s=>{if(!(s.source!==parent||s.origin!==l)&&W(s.data)){try{e?.promoted()}catch{}E=-1,b()}})})}})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PM OS — Your AI-First Productivity System for Firefox Product Work</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <!-- Auto-deploy test -->
@@ -351,6 +351,16 @@ section {
   overflow: hidden;
 }
 
+@media (prefers-color-scheme: dark) {
+  .feature-card {
+    background: var(--surface);
+  }
+}
+
+:root[data-theme="dark"] .feature-card {
+  background: var(--surface);
+}
+
 .feature-card::before {
   content: '';
   position: absolute;
@@ -493,6 +503,111 @@ section {
   border-radius: 0.25rem;
   background: var(--code-bg);
   color: var(--text-secondary);
+}
+
+.badge-built {
+  background: rgba(0, 210, 48, 0.15);
+  color: var(--success-hover);
+}
+
+.badge-review {
+  background: var(--accent-light);
+  color: var(--accent-deep);
+}
+
+.badge-planned {
+  background: var(--code-bg);
+  color: var(--text-secondary);
+  border: 1px dashed var(--border);
+}
+
+/* Pipeline diagram */
+.pipeline-diagram {
+  width: 100%;
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.pipeline-diagram svg {
+  display: block;
+  min-width: 920px;
+}
+
+.diag-box {
+  fill: white;
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.diag-box-built {
+  fill: white;
+  stroke: var(--success-hover);
+  stroke-width: 2;
+}
+
+.diag-box-review {
+  fill: var(--accent-light);
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 3;
+}
+
+.diag-box-planned {
+  fill: var(--surface);
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.diag-box-manual {
+  fill: var(--surface);
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+}
+
+.diag-label {
+  fill: var(--text-primary);
+  font-family: var(--font-base);
+  font-size: 12px;
+}
+
+.diag-sublabel {
+  fill: var(--text-secondary);
+  font-family: var(--font-base);
+  font-size: 10px;
+}
+
+.diag-arrow {
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+  fill: none;
+  marker-end: url(#diag-arrowhead);
+}
+
+.diag-arrow-planned {
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  fill: none;
+  marker-end: url(#diag-arrowhead);
+}
+
+@media (prefers-color-scheme: dark) {
+  .diag-box, .diag-box-built, .diag-box-review, .diag-box-planned, .diag-box-manual {
+    fill: var(--base);
+  }
+}
+
+:root[data-theme="dark"] .diag-box,
+:root[data-theme="dark"] .diag-box-built,
+:root[data-theme="dark"] .diag-box-review,
+:root[data-theme="dark"] .diag-box-planned,
+:root[data-theme="dark"] .diag-box-manual {
+  fill: var(--base);
 }
 
 .skill-card p {
@@ -654,6 +769,7 @@ a:focus-visible, button:focus-visible {
   outline-offset: 2px;
 }
 </style>
+</head><body>
 
 <nav>
   <div class="nav-content">
@@ -1359,6 +1475,217 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     </section>
   </div>
 
+  <!-- Pipeline Tab -->
+  <div id="pipeline-tab" class="tab-content">
+    <section class="section-contained">
+      <div class="section-header">
+        <h2>Review &amp; Maintainability Pipeline</h2>
+        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-13, not an aspiration.</p>
+      </div>
+
+      <div class="feature-card" style="margin-bottom: var(--space-lg);">
+        <h3>Why this exists</h3>
+        <p>pm-os-base's contribution volume was outrunning the people who review it. The bottleneck wasn't a lack of AI in the loop. It was that reviewing a PR meant a maintainer pointing Claude at the diff by hand, reading what came back, and deciding whether to go with it, over and over, PR after PR. That doesn't scale past a handful of people giving up their own work to sit in that loop.</p>
+        <p style="margin-top: var(--space-xs);">This pipeline replaces the manual loop with one consolidated system: the same review, run the same way, every time, wired into CI instead of re-invoked by hand for each PR. The point isn't just to unblock pm-os-base — it's a working example, inside Mozilla, of what it looks like to ship code to production with agent review doing the actual reviewing, not just assisting a human who still reads every line.</p>
+        <p style="margin-top: var(--space-xs);">Taken far enough, that means a contributor states what they want to build and why, Claude asks whatever it needs to fill the gaps, and the rest (build, review, merge, ship) happens without a maintainer manually checking in at every step. That's only viable if the checks do the job a maintainer's own read would have done. This plan treats one of those checks as first-class, not optional: whether a change grows the plugin's size and complexity without earning it. Removing the human from routine review also removes the person who used to ask "do we actually need this?" That judgment has to get rebuilt into the checks themselves, or the codebase grows unchecked.</p>
+      </div>
+
+      <div class="pipeline-diagram">
+        <svg viewBox="0 0 940 624" role="img" aria-label="Pipeline diagram: today, every PR already gets a manual, ungoverned Claude review from whoever's reviewing it. Below that, PR-triggered review lanes for teams, hooks, CLAUDE.md/AGENTS.md, skills, and modules formalize that same check path by path, plus a separate scheduled health-check lane, both feeding a single signal for whether a PR is safe to merge without a maintainer reviewing it by hand.">
+          <defs>
+            <marker id="diag-arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--text-secondary)" />
+            </marker>
+          </defs>
+
+          <!-- Baseline: every PR today, manual and ungoverned -->
+          <text x="10" y="18" class="diag-sublabel">TODAY, EVERY PR — MANUAL, UNGOVERNED</text>
+          <rect x="10" y="26" width="150" height="44" rx="6" class="diag-box-manual" />
+          <text x="85" y="44" text-anchor="middle" class="diag-label">Any PR,</text>
+          <text x="85" y="59" text-anchor="middle" class="diag-label">any path</text>
+          <path d="M160,48 H250" class="diag-arrow" />
+          <rect x="250" y="26" width="270" height="44" rx="6" class="diag-box-manual" />
+          <text x="385" y="44" text-anchor="middle" class="diag-label">Reviewer manually asks Claude to review</text>
+          <text x="385" y="59" text-anchor="middle" class="diag-sublabel">own prompt, no record — the problem every lane below is fixing</text>
+          <path d="M520,48 H610" class="diag-arrow" />
+          <rect x="610" y="26" width="200" height="44" rx="6" class="diag-box-manual" />
+          <text x="710" y="44" text-anchor="middle" class="diag-label">Human merge decision</text>
+          <text x="710" y="59" text-anchor="middle" class="diag-sublabel">happens today, whether or not a lane below ran</text>
+
+          <!-- Lane 1: teams/** -->
+          <text x="10" y="110" class="diag-sublabel">PR-TRIGGERED</text>
+          <rect x="10" y="118" width="150" height="44" rx="6" class="diag-box-built" />
+          <text x="85" y="136" text-anchor="middle" class="diag-label">PR touches</text>
+          <text x="85" y="151" text-anchor="middle" class="diag-label">teams/**</text>
+          <path d="M160,140 H250" class="diag-arrow" />
+          <rect x="250" y="118" width="270" height="44" rx="6" class="diag-box-built" />
+          <text x="385" y="136" text-anchor="middle" class="diag-label">Security + broken-reference check</text>
+          <text x="385" y="151" text-anchor="middle" class="diag-sublabel">Claude, advisory only — never blocks</text>
+          <path d="M520,140 H610" class="diag-arrow" />
+          <rect x="610" y="118" width="200" height="44" rx="6" class="diag-box-built" />
+          <text x="710" y="136" text-anchor="middle" class="diag-label">Comment posted to PR</text>
+          <text x="710" y="151" text-anchor="middle" class="diag-sublabel">LIVE — PR #405, merged 2026-10-02</text>
+
+          <!-- Lane 2: hooks/** (two sub-rows) -->
+          <rect x="10" y="184" width="150" height="88" rx="6" class="diag-box-built" />
+          <text x="85" y="222" text-anchor="middle" class="diag-label">PR touches</text>
+          <text x="85" y="237" text-anchor="middle" class="diag-label">hooks/**</text>
+
+          <path d="M160,206 H250" class="diag-arrow" />
+          <rect x="250" y="184" width="270" height="40" rx="6" class="diag-box-built" />
+          <text x="385" y="202" text-anchor="middle" class="diag-label">Deterministic audit (script)</text>
+          <text x="385" y="216" text-anchor="middle" class="diag-sublabel">registry vs. hooks.json, junk-input probe</text>
+          <path d="M520,204 H610" class="diag-arrow" />
+          <rect x="610" y="184" width="200" height="40" rx="6" class="diag-box-built" />
+          <text x="710" y="202" text-anchor="middle" class="diag-label">LIVE — required check</text>
+          <text x="710" y="216" text-anchor="middle" class="diag-sublabel">candidate once proven out</text>
+
+          <path d="M160,250 H250" class="diag-arrow" />
+          <rect x="250" y="230" width="270" height="42" rx="6" class="diag-box-review" />
+          <text x="385" y="248" text-anchor="middle" class="diag-label">Hooks standards review</text>
+          <text x="385" y="263" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks the hook-quality bar</text>
+          <path d="M520,251 H610" class="diag-arrow" />
+          <rect x="610" y="230" width="200" height="42" rx="6" class="diag-box-review" />
+          <text x="710" y="248" text-anchor="middle" class="diag-label">IN REVIEW — PR #479</text>
+          <text x="710" y="263" text-anchor="middle" class="diag-sublabel">blocked: open thread + ai4dev approval</text>
+
+          <!-- Lane 3a: CLAUDE.md/AGENTS.md, in review -->
+          <rect x="10" y="294" width="150" height="42" rx="6" class="diag-box-review" />
+          <text x="85" y="311" text-anchor="middle" class="diag-label">PR touches</text>
+          <text x="85" y="326" text-anchor="middle" class="diag-label">CLAUDE.md/AGENTS.md</text>
+          <path d="M160,315 H250" class="diag-arrow" />
+          <rect x="250" y="294" width="270" height="42" rx="6" class="diag-box-review" />
+          <text x="385" y="311" text-anchor="middle" class="diag-label">Security + router-pattern review</text>
+          <text x="385" y="326" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks docs/standards-claude-md.md</text>
+          <path d="M520,315 H610" class="diag-arrow" />
+          <rect x="610" y="294" width="200" height="42" rx="6" class="diag-box-review" />
+          <text x="710" y="311" text-anchor="middle" class="diag-label">IN REVIEW — PR #519</text>
+          <text x="710" y="326" text-anchor="middle" class="diag-sublabel">opened 2026-10-13</text>
+
+          <!-- Lane 3b: skills/**, in review -->
+          <rect x="10" y="348" width="150" height="42" rx="6" class="diag-box-review" />
+          <text x="85" y="365" text-anchor="middle" class="diag-label">PR touches</text>
+          <text x="85" y="380" text-anchor="middle" class="diag-label">skills/**</text>
+          <path d="M160,369 H250" class="diag-arrow" />
+          <rect x="250" y="348" width="270" height="42" rx="6" class="diag-box-review" />
+          <text x="385" y="365" text-anchor="middle" class="diag-label">8-laws + outbound-tools review</text>
+          <text x="385" y="380" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks docs/standards-skills.md</text>
+          <path d="M520,369 H610" class="diag-arrow" />
+          <rect x="610" y="348" width="200" height="42" rx="6" class="diag-box-review" />
+          <text x="710" y="365" text-anchor="middle" class="diag-label">IN REVIEW — PR #535</text>
+          <text x="710" y="380" text-anchor="middle" class="diag-sublabel">opened 2026-10-13</text>
+
+          <!-- Lane 3c: modules/**, in review -->
+          <rect x="10" y="402" width="150" height="42" rx="6" class="diag-box-review" />
+          <text x="85" y="419" text-anchor="middle" class="diag-label">PR touches</text>
+          <text x="85" y="434" text-anchor="middle" class="diag-label">modules/**</text>
+          <path d="M160,423 H250" class="diag-arrow" />
+          <rect x="250" y="402" width="270" height="42" rx="6" class="diag-box-review" />
+          <text x="385" y="419" text-anchor="middle" class="diag-label">Content-quality review</text>
+          <text x="385" y="434" text-anchor="middle" class="diag-sublabel">Claude, advisory — structural checks already run in CI</text>
+          <path d="M520,423 H610" class="diag-arrow" />
+          <rect x="610" y="402" width="200" height="42" rx="6" class="diag-box-review" />
+          <text x="710" y="419" text-anchor="middle" class="diag-label">IN REVIEW — PR #536</text>
+          <text x="710" y="434" text-anchor="middle" class="diag-sublabel">opened 2026-10-13</text>
+
+          <!-- Lane 4: scheduled, not PR-triggered -->
+          <text x="10" y="480" class="diag-sublabel">SCHEDULED — independent of any single PR</text>
+          <rect x="10" y="488" width="150" height="56" rx="6" class="diag-box-planned" />
+          <text x="85" y="512" text-anchor="middle" class="diag-label">Runs on a</text>
+          <text x="85" y="527" text-anchor="middle" class="diag-label">cadence</text>
+          <path d="M160,516 H250" class="diag-arrow-planned" />
+          <rect x="250" y="488" width="270" height="56" rx="6" class="diag-box-planned" />
+          <text x="385" y="508" text-anchor="middle" class="diag-label">Skills · CLAUDE.md/AGENTS.md ·</text>
+          <text x="385" y="523" text-anchor="middle" class="diag-label">hooks · modules usage audit</text>
+          <text x="385" y="536" text-anchor="middle" class="diag-sublabel">are these still used, current, worth keeping?</text>
+          <path d="M520,516 H610" class="diag-arrow-planned" />
+          <rect x="610" y="488" width="200" height="56" rx="6" class="diag-box-planned" />
+          <text x="710" y="512" text-anchor="middle" class="diag-label">PLANNED</text>
+          <text x="710" y="527" text-anchor="middle" class="diag-sublabel">not started</text>
+
+          <!-- Convergence -->
+          <path d="M710,162 V562 M710,272 V562 M710,336 V562 M710,390 V562 M710,444 V562 M710,544 V562" class="diag-arrow-planned" style="marker-end:none;" />
+          <rect x="560" y="562" width="300" height="44" rx="6" class="diag-box" />
+          <text x="710" y="580" text-anchor="middle" class="diag-label">Safe-to-merge signal</text>
+          <text x="710" y="595" text-anchor="middle" class="diag-sublabel">replaces a maintainer reviewing the PR by hand</text>
+        </svg>
+      </div>
+
+      <div class="feature-card" style="margin-bottom: var(--space-lg); border-left: 4px solid var(--accent);">
+        <h3>One flow, not three clean lanes — yet</h3>
+        <p>The grey "TODAY, EVERY PR" row at the top of the diagram isn't a planned lane — it's the baseline every PR already goes through, today, with no CI involved: a reviewer points Claude Code at the diff themselves, with their own prompt and whatever context they thought to include, and nothing about the exchange gets recorded. Each routing branch below formalizes that same check for one specific path, with a consistent prompt, a record (the PR comment), and a scope the standard actually defines. For any path not yet routed, and for everything these branches don't check even on a routed path, that manual baseline is still what's actually happening — it doesn't go away as branches ship, it just gets replaced path by path.</p>
+        <p>The "code review / security review / standards review" split is the target shape, not how today's five routing branches are literally organized. Each branch runs whatever mix of checks fits its content: <code>teams/**</code> gets a narrow security-and-broken-reference pass only — by deliberate design, after a maintainer Slack thread concluded that reviewing team-knowledge content for accuracy produces constant nitpicking over nuance Claude can't judge. <code>hooks/**</code> gets a deterministic audit plus an advisory standards check, since a bad hook runs on every PM's machine. <code>CLAUDE.md</code>/<code>AGENTS.md</code> gets security plus a router-pattern check against the existing standards doc, with no deterministic audit job at all, since these files have no code to run a script against. <code>skills/**</code> gets an advisory check against the 8-laws and outbound-tool standards, also with no deterministic job. <code>modules/**</code> gets an advisory content-quality check only, since the structural part of its standard already runs as a deterministic CI check outside this pipeline. As more paths get routed, the aim is for each new branch to assemble the lanes it actually needs from the same three building blocks, not to force every path through all three.</p>
+      </div>
+
+      <div class="section-header">
+        <h2>Keeping this from growing unmanageable</h2>
+      </div>
+      <div class="feature-card">
+        <p>None of the built or in-review checks above look at plugin size or complexity today — they check correctness, security, and standards compliance on the change in front of them, not on the shape of the codebase after it lands. That's the real risk of lowering the cost of contributing: more of it gets through, and "more" isn't automatically "better maintained." The standards-compliance lane and the scheduled health-check lane (both planned, neither designed in detail yet) need to carry this explicitly — flagging a new skill or module that duplicates existing coverage, and surfacing what the health audit finds is unused so it can be retired, not just added to. This has to be a stated, checked criterion before any routing branch is allowed to merge PRs without a maintainer in the loop, not something inferred from "the reviews all came back clean."</p>
+      </div>
+
+      <div class="section-header" style="margin-top: var(--space-lg);">
+        <h2>What's next</h2>
+        <p>Three different kinds of gap, in order of how settled the work is. Written 2026-10-13 — expect this to move.</p>
+      </div>
+
+      <h3 style="margin-bottom: var(--space-xs);">Already in the plan, not yet built</h3>
+      <div class="features" style="margin-bottom: var(--space-lg);">
+        <div class="feature-card">
+          <h3>Finish the routing rollout</h3>
+          <p>Every planned routing branch now has a PR: <code>teams/**</code> and <code>CLAUDE.md</code>/<code>AGENTS.md</code> merged, <code>hooks/**</code>, <code>skills/**</code>, and <code>modules/**</code> still in review. What's left is getting the remaining three merged, not building anything new.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Build the evidence base</h3>
+          <p>No tracking yet of false positives/negatives per PR. Without this, nobody has grounds to trust the checks enough to pull a human out of the loop — it's the evidence Phase 3 needs, not a nice-to-have.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Name the escalation owner</h3>
+          <p>"Needs a human call" items have nowhere specific to land — no named codeowner or rotation decided.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ruleset change (Phase 3)</h3>
+          <p>Once the evidence base shows it's warranted: identify who owns branch protection, then let the bot's review satisfy <code>require_code_owner_review</code> directly. The actual mechanical step that removes a human from per-PR review.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--space-xs);">Stated as goals, not designed as checks yet</h3>
+      <div class="features" style="margin-bottom: var(--space-lg);">
+        <div class="feature-card">
+          <h3>Security review</h3>
+          <p>Currently a side effect of the code-review pass on <code>teams/**</code>, not its own scoped workflow with its own prompt.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Standards review</h3>
+          <p>pm-os-base's actual standards — JTBD structure, module boundaries, conventions — aren't written down as a checkable spec anywhere. A review step can't check against standards that only exist as instinct.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Growth/complexity check</h3>
+          <p>Right now this is the paragraph above, not a check. Needs a real definition: what's measured (skill count, module size, duplication, CLAUDE.md growth), what threshold trips a flag, who reviews a flagged PR.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Scheduled health audits</h3>
+          <p>No cadence or mechanism decided yet for the skills/hooks/modules/CLAUDE.md usage audit — cron? triggered on release? what counts as "unhealthy"?</p>
+        </div>
+        <div class="feature-card">
+          <h3>General code review + automated QA</h3>
+          <p>Every lane above checks standards-compliance or security against a specific doc. None of them ask whether the change itself is actually correct, the way a general human review would. Hooks are the sharpest case: the audit job already runs a hook against junk input, but whether it actually works is still a checkbox a human can skip, not an enforced test. Needs its own pass on <code>hooks/**</code>, <code>CLAUDE.md</code>/<code>AGENTS.md</code>, <code>skills/**</code>, and <code>modules/**</code>, plus a different answer per path for what automated QA even means where there's no code to run. Identified 2026-10-13.</p>
+          <p>Design direction, borrowed from <a href="https://github.com/mozilla/bugbug">mozilla/bugbug</a>'s review agent: one general reviewer that loads the right standards doc for each changed path, not five more bespoke prompts. Hooks get real fixture tests in a session run on throwaway GitHub Actions VMs (Linux, macOS, Windows). Skills get evals against fixed inputs, on a nightly schedule. All of it runs in GitHub Actions, with no hosted service. Proposed order: hook tests first, then the general reviewer, then skill evals. Not built yet.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Reports on what's landing + regular release notes</h3>
+          <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are now an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement. 0.6.0 shows the cost: its notes merged, but the tag, GitHub Release and site entry never happened. Proposed: a one-line Slack note on every merge, plus a weekly release that runs itself. A scheduled job drafts the notes from the week's diffs. A second review checks every claim against the code. A maintainer approves once. Merging the notes then triggers the tag, the GitHub Release, the site update and the Slack announcement automatically. The single human approval stays because release notes go to every PM, and past notes have shipped real factual errors. All of it runs in GitHub Actions. Not built yet.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: var(--space-xs);">Not in the plan at all</h3>
+      <div class="feature-card" style="border-left: 4px solid var(--accent);">
+        <h3>The intake-and-build front end</h3>
+        <p>Everything above is about reviewing PRs that already exist. Nothing yet addresses the front half of the end-state flow: a contributor stating intent, Claude asking clarifying questions to fill the gaps, and the build itself happening. That step has zero design today — review infrastructure without it only ever reviews human-written PRs; it doesn't reach the end-to-end flow on its own.</p>
+      </div>
+    </section>
+  </div>
+
   <!-- Release Notes Tab -->
   <div id="whats-new-tab" class="tab-content">
     <section class="section-contained">
@@ -1678,6 +2005,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     <p style="color: var(--text-secondary);">Built by Firefox PMs, for Firefox PMs.</p>
     <ul class="footer-links">
       <li><a href="https://github.com/mozilla/internal-aidev-plugins">GitHub</a></li>
+      <li><a href="#pipeline" onclick="showTab('pipeline')">Review Pipeline</a></li>
       <li><a href="mailto:jwanger@mozilla.com">Contact</a></li>
     </ul>
   </div>
@@ -1710,7 +2038,7 @@ function showTab(tabName) {
 // Handle hash-based routing on page load and hash changes
 function loadTabFromHash() {
   const hash = window.location.hash.slice(1); // Remove the '#'
-  const validTabs = ['overview', 'skills', 'get-started', 'whats-new', 'faq'];
+  const validTabs = ['overview', 'skills', 'get-started', 'pipeline', 'whats-new', 'faq'];
 
   // Check if hash is a section anchor (starts with "step-")
   let tabToShow = 'overview';

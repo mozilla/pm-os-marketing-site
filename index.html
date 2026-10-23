@@ -1480,7 +1480,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     <section class="section-contained">
       <div class="section-header">
         <h2>Review &amp; Maintainability Pipeline</h2>
-        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-21, not an aspiration.</p>
+        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-23, not an aspiration.</p>
       </div>
 
       <div class="feature-card" style="margin-bottom: var(--space-lg);">
@@ -1491,7 +1491,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       </div>
 
       <div class="pipeline-diagram">
-        <svg viewBox="0 0 940 732" role="img" aria-label="Pipeline diagram: today, every PR already gets a manual, ungoverned Claude review from whoever's reviewing it. Below that, PR-triggered review lanes for teams, hooks, CLAUDE.md/AGENTS.md, skills, and modules are all live and formalize that same check path by path; a general correctness review across every path is in review. A scheduled lane sweeps every skill for claims that are no longer true, with a usage audit still planned. All of it feeds a single signal for whether a PR is safe to merge without a maintainer reviewing it by hand.">
+        <svg viewBox="0 0 940 732" role="img" aria-label="Pipeline diagram: today, every PR already gets a manual, ungoverned Claude review from whoever's reviewing it. Below that, PR-triggered review lanes for teams, hooks, CLAUDE.md/AGENTS.md, skills, and modules are all live and formalize that same check path by path; a general correctness review across every path is live. A scheduled lane sweeps every skill for claims that are no longer true, with a usage audit still planned. All of it feeds a single signal for whether a PR is safe to merge without a maintainer reviewing it by hand.">
           <defs>
             <marker id="diag-arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="var(--text-secondary)" />
@@ -1526,7 +1526,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="151" text-anchor="middle" class="diag-sublabel">Claude, advisory only — never blocks</text>
           <path d="M520,140 H610" class="diag-arrow" />
           <rect x="610" y="118" width="200" height="44" rx="6" class="diag-box-built" />
-          <text x="710" y="136" text-anchor="middle" class="diag-label">LIVE — PR #405</text>
+          <text x="710" y="136" text-anchor="middle" class="diag-label">LIVE</text>
           <text x="710" y="151" text-anchor="middle" class="diag-sublabel">merged 2026-10-05</text>
 
           <!-- Lane 2: hooks/** (two sub-rows) -->
@@ -1540,8 +1540,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="216" text-anchor="middle" class="diag-sublabel">registry vs. hooks.json, fixtures for every hook</text>
           <path d="M520,204 H610" class="diag-arrow" />
           <rect x="610" y="184" width="200" height="40" rx="6" class="diag-box-built" />
-          <text x="710" y="202" text-anchor="middle" class="diag-label">LIVE — fails CI (PR #547)</text>
-          <text x="710" y="216" text-anchor="middle" class="diag-sublabel">macOS + Windows runs: PR #548</text>
+          <text x="710" y="202" text-anchor="middle" class="diag-label">LIVE — fails CI</text>
+          <text x="710" y="216" text-anchor="middle" class="diag-sublabel">also runs on macOS + Windows</text>
 
           <path d="M160,250 H250" class="diag-arrow" />
           <rect x="250" y="230" width="270" height="42" rx="6" class="diag-box-built" />
@@ -1549,7 +1549,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="263" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks the hook-quality bar</text>
           <path d="M520,251 H610" class="diag-arrow" />
           <rect x="610" y="230" width="200" height="42" rx="6" class="diag-box-built" />
-          <text x="710" y="248" text-anchor="middle" class="diag-label">LIVE — PR #479</text>
+          <text x="710" y="248" text-anchor="middle" class="diag-label">LIVE</text>
           <text x="710" y="263" text-anchor="middle" class="diag-sublabel">merged 2026-10-15</text>
 
           <!-- Lane 3a: CLAUDE.md/AGENTS.md -->
@@ -1562,7 +1562,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="326" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks docs/standards-claude-md.md</text>
           <path d="M520,315 H610" class="diag-arrow" />
           <rect x="610" y="294" width="200" height="42" rx="6" class="diag-box-built" />
-          <text x="710" y="311" text-anchor="middle" class="diag-label">LIVE — PR #519</text>
+          <text x="710" y="311" text-anchor="middle" class="diag-label">LIVE</text>
           <text x="710" y="326" text-anchor="middle" class="diag-sublabel">merged 2026-10-13</text>
 
           <!-- Lane 3b: skills/** -->
@@ -1575,7 +1575,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="380" text-anchor="middle" class="diag-sublabel">Claude, advisory — checks docs/standards-skills.md</text>
           <path d="M520,369 H610" class="diag-arrow" />
           <rect x="610" y="348" width="200" height="42" rx="6" class="diag-box-built" />
-          <text x="710" y="365" text-anchor="middle" class="diag-label">LIVE — PR #535</text>
+          <text x="710" y="365" text-anchor="middle" class="diag-label">LIVE</text>
           <text x="710" y="380" text-anchor="middle" class="diag-sublabel">merged 2026-10-14</text>
 
           <!-- Lane 3c: modules/** -->
@@ -1588,21 +1588,21 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="434" text-anchor="middle" class="diag-sublabel">Claude, advisory — structural checks already run in CI</text>
           <path d="M520,423 H610" class="diag-arrow" />
           <rect x="610" y="402" width="200" height="42" rx="6" class="diag-box-built" />
-          <text x="710" y="419" text-anchor="middle" class="diag-label">LIVE — PR #536</text>
+          <text x="710" y="419" text-anchor="middle" class="diag-label">LIVE</text>
           <text x="710" y="434" text-anchor="middle" class="diag-sublabel">merged 2026-10-14</text>
 
-          <!-- Lane 3d: general correctness review, every path, in review -->
-          <rect x="10" y="456" width="150" height="42" rx="6" class="diag-box-review" />
+          <!-- Lane 3d: general correctness review, every path, live -->
+          <rect x="10" y="456" width="150" height="42" rx="6" class="diag-box-built" />
           <text x="85" y="473" text-anchor="middle" class="diag-label">Any pm-os-base PR</text>
           <text x="85" y="488" text-anchor="middle" class="diag-sublabel">except teams/** only</text>
           <path d="M160,477 H250" class="diag-arrow" />
-          <rect x="250" y="456" width="270" height="42" rx="6" class="diag-box-review" />
+          <rect x="250" y="456" width="270" height="42" rx="6" class="diag-box-built" />
           <text x="385" y="473" text-anchor="middle" class="diag-label">General correctness review</text>
           <text x="385" y="488" text-anchor="middle" class="diag-sublabel">Claude, advisory — loads the standards docs by path</text>
           <path d="M520,477 H610" class="diag-arrow" />
-          <rect x="610" y="456" width="200" height="42" rx="6" class="diag-box-review" />
-          <text x="710" y="473" text-anchor="middle" class="diag-label">IN REVIEW — PR #620</text>
-          <text x="710" y="488" text-anchor="middle" class="diag-sublabel">opened 2026-10-21</text>
+          <rect x="610" y="456" width="200" height="42" rx="6" class="diag-box-built" />
+          <text x="710" y="473" text-anchor="middle" class="diag-label">LIVE</text>
+          <text x="710" y="488" text-anchor="middle" class="diag-sublabel">merged 2026-10-22</text>
 
           <!-- Lane 4: scheduled, not PR-triggered (two sub-rows) -->
           <text x="10" y="534" class="diag-sublabel">SCHEDULED — independent of any single PR</text>
@@ -1616,8 +1616,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <text x="385" y="574" text-anchor="middle" class="diag-sublabel">Claude — are a skill's claims still true?</text>
           <path d="M520,562 H610" class="diag-arrow" />
           <rect x="610" y="542" width="200" height="40" rx="6" class="diag-box-review" />
-          <text x="710" y="560" text-anchor="middle" class="diag-label">BUILT — PR #567, manual runs</text>
-          <text x="710" y="574" text-anchor="middle" class="diag-sublabel">schedule in review: PR #605</text>
+          <text x="710" y="560" text-anchor="middle" class="diag-label">BUILT — manual runs</text>
+          <text x="710" y="574" text-anchor="middle" class="diag-sublabel">schedule built, switched off</text>
 
           <path d="M160,608 H250" class="diag-arrow-planned" />
           <rect x="250" y="588" width="270" height="42" rx="6" class="diag-box-planned" />
@@ -1637,26 +1637,26 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       <div class="feature-card" style="margin-bottom: var(--space-lg); border-left: 4px solid var(--accent);">
         <h3>One flow, not three clean lanes — yet</h3>
         <p>The grey "TODAY, EVERY PR" row at the top of the diagram isn't a planned lane — it's the baseline every PR already goes through, today, with no CI involved: a reviewer points Claude Code at the diff themselves, with their own prompt and whatever context they thought to include, and nothing about the exchange gets recorded. Each routing branch below formalizes that same check for one specific path, with a consistent prompt, a record (the PR comment), and a scope the standard actually defines. For any path not yet routed, and for everything these branches don't check even on a routed path, that manual baseline is still what's actually happening — it doesn't go away as branches ship, it just gets replaced path by path.</p>
-        <p>The "code review / security review / standards review" split is the target shape, not how today's five routing branches are literally organized. Each branch runs whatever mix of checks fits its content: <code>teams/**</code> gets a narrow security-and-broken-reference pass only — by deliberate design, after a maintainer Slack thread concluded that reviewing team-knowledge content for accuracy produces constant nitpicking over nuance Claude can't judge. <code>hooks/**</code> gets a deterministic audit and fixture tests plus an advisory standards check, since a bad hook runs on every PM's machine. <code>CLAUDE.md</code>/<code>AGENTS.md</code> gets security plus a router-pattern check against the existing standards doc, with no deterministic audit job at all, since these files have no code to run a script against. <code>skills/**</code> gets an advisory check against the 8-laws and outbound-tool standards, also with no deterministic job. <code>modules/**</code> gets an advisory content-quality check only, since the structural part of its standard already runs as a deterministic CI check outside this pipeline. As more paths get routed, the aim is for each new branch to assemble the lanes it actually needs from the same three building blocks, not to force every path through all three.</p>
+        <p>The "code review / security review / standards review" split is the target shape, not how today's five routing branches are literally organized. Each branch runs whatever mix of checks fits its content: <code>teams/**</code> gets a narrow security-and-broken-reference pass only — by deliberate design: reviewing team-knowledge content for accuracy produces constant nitpicking over nuance Claude can't judge. <code>hooks/**</code> gets a deterministic audit and fixture tests plus an advisory standards check, since a bad hook runs on every PM's machine. <code>CLAUDE.md</code>/<code>AGENTS.md</code> gets security plus a router-pattern check against the existing standards doc, with no deterministic audit job at all, since these files have no code to run a script against. <code>skills/**</code> gets an advisory check against the 8-laws and outbound-tool standards, also with no deterministic job. <code>modules/**</code> gets an advisory content-quality check only, since the structural part of its standard already runs as a deterministic CI check outside this pipeline. As more paths get routed, the aim is for each new branch to assemble the lanes it actually needs from the same three building blocks, not to force every path through all three.</p>
       </div>
 
       <div class="section-header">
         <h2>Keeping this from growing unmanageable</h2>
       </div>
       <div class="feature-card">
-        <p>None of the built or in-review checks above look at plugin size or complexity today — they check correctness, security, and standards compliance on the change in front of them, not on the shape of the codebase after it lands. That's the real risk of lowering the cost of contributing: more of it gets through, and "more" isn't automatically "better maintained." The per-path standards reviews (now live) and the scheduled usage audit (planned, not designed in detail yet) need to carry this explicitly — flagging a new skill or module that duplicates existing coverage, and surfacing what the health audit finds is unused so it can be retired, not just added to. This has to be a stated, checked criterion before any routing branch is allowed to merge PRs without a maintainer in the loop, not something inferred from "the reviews all came back clean."</p>
+        <p>None of the built checks above look at plugin size or complexity today — they check correctness, security, and standards compliance on the change in front of them, not on the shape of the codebase after it lands. That's the real risk of lowering the cost of contributing: more of it gets through, and "more" isn't automatically "better maintained." The per-path standards reviews (now live) and the scheduled usage audit (planned, not designed in detail yet) need to carry this explicitly — flagging a new skill or module that duplicates existing coverage, and surfacing what the health audit finds is unused so it can be retired, not just added to. This has to be a stated, checked criterion before any routing branch is allowed to merge PRs without a maintainer in the loop, not something inferred from "the reviews all came back clean."</p>
       </div>
 
       <div class="section-header" style="margin-top: var(--space-lg);">
         <h2>What's next</h2>
-        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-10-21 — expect this to move.</p>
+        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-10-23 — expect this to move.</p>
       </div>
 
       <h3 style="margin-bottom: var(--space-xs);">Already in the plan, not yet built</h3>
       <div class="features" style="margin-bottom: var(--space-lg);">
         <div class="feature-card">
           <h3>Build the evidence base</h3>
-          <p>No tracking yet of false positives/negatives per PR. The general reviewer in PR #620 is built to produce it at no cost to reviewers: each review stores its verdict, findings and the docs it loaded in a hidden block on its comment, and the PR author's Claude can optionally mark a finding fixed or not real. Nothing collects that record into a catch/miss log yet. Without this, nobody has grounds to trust the checks enough to pull a human out of the loop — it's the evidence Phase 3 needs, not a nice-to-have.</p>
+          <p>No tracking yet of false positives/negatives per PR. The general reviewer, live since 2026-10-22, produces it at no cost to reviewers: each review stores its verdict, findings and the docs it loaded in a hidden block on its comment, and the PR author's Claude can optionally mark a finding fixed or not real. Nothing collects that record into a catch/miss log yet. Without this, nobody has grounds to trust the checks enough to pull a human out of the loop — it's the evidence Phase 3 needs, not a nice-to-have.</p>
         </div>
         <div class="feature-card">
           <h3>Name the escalation owner</h3>
@@ -1684,7 +1684,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         </div>
         <div class="feature-card">
           <h3>Scheduled health audits</h3>
-          <p>The skills half has started. A doc-vs-code sweep of every skill (PR #567, merged 2026-10-21) checks whether what each skill says is still true of the repo, and runs by hand until it's calibrated. PR #605, in review, makes it cheaper and sets it up to run every other week once the schedule is switched on. Nothing yet asks whether skills, hooks, modules or CLAUDE.md files are still used and worth keeping: no cadence or mechanism decided, and no definition of "unhealthy."</p>
+          <p>The skills half has started. A doc-vs-code sweep of every skill (merged 2026-10-21) checks whether what each skill says is still true of the repo, and runs by hand until it's calibrated. A follow-up, also merged 2026-10-21, makes it cheaper (changed skills only, a cheaper model) and sets it up to run every other week. The schedule is built but not switched on yet: a calibration run comes first. Nothing yet asks whether skills, hooks, modules or CLAUDE.md files are still used and worth keeping: no cadence or mechanism decided, and no definition of "unhealthy."</p>
         </div>
         <div class="feature-card">
           <h3>General code review + automated QA</h3>
@@ -1692,8 +1692,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <p>Design direction, borrowed from <a href="https://github.com/mozilla/bugbug">mozilla/bugbug</a>'s review agent: one general reviewer that loads the right standards doc for each changed path, not five more bespoke prompts. Hooks get real fixture tests in a session run on throwaway GitHub Actions VMs (Linux, macOS, Windows). Skills get evals against fixed inputs, on a nightly schedule. All of it runs in GitHub Actions, with no hosted service.</p>
           <p>Progress, in that order:</p>
           <ul>
-            <li><strong>Hook tests:</strong> a fixture set for every wired hook runs in CI and fails the run on a broken hook (PR #547, merged 2026-10-15). It isn't a required check yet: making it one needs a repo admin. The same tests on macOS and Windows runners are in review (PR #548).</li>
-            <li><strong>General reviewer:</strong> in review (PR #620). It runs alongside the five per-path reviews, and those get retired only once it's shown to catch what they catch.</li>
+            <li><strong>Hook tests:</strong> a fixture set for every wired hook runs in CI and fails the run on a broken hook (merged 2026-10-15). The same tests now also run on macOS and Windows runners for PRs that touch hooks (merged 2026-10-22). It isn't a required check yet: making it one needs a repo admin.</li>
+            <li><strong>General reviewer:</strong> live since 2026-10-22. It runs alongside the five per-path reviews on every pm-os-base PR except teams-only ones, and those get retired only once it's shown to catch what they catch.</li>
             <li><strong>Skill evals:</strong> designed, deferred.</li>
           </ul>
         </div>

@@ -857,7 +857,7 @@ a:focus-visible, button:focus-visible {
 
       <div style="margin-top: var(--space-xl);">
         <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: var(--space-sm);">Pre-Built Skills to Make PM Life Easier</h3>
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 73 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 84 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
         <div class="features">
           <div class="feature-card">
             <h3>/write-experiment-brief</h3>
@@ -912,7 +912,7 @@ a:focus-visible, button:focus-visible {
     <section class="section-contained">
       <div class="section-header">
         <h2>Skills Reference</h2>
-        <p>A selection of the 73 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
+        <p>A selection of the 84 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
       </div>
 
       <div class="skills-browser">
@@ -1720,6 +1720,29 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       </div>
 
       <div class="steps">
+        <div class="step">
+          <h3>Version 0.7.0 — October 23, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Claude asks before sensitive content leaves Mozilla</strong> — A new hook asks before an external email, a public GitHub post, a gist, a webhook, an upload or an outside share, judging each send by where it is going and what the session has read. A second new hook asks, with the full command, before anything downloads a code repository. A local log of the permission prompts you see helps you spot the unnecessary ones</li>
+            <li><strong>Your own forks now take effect beyond skills</strong> — When Claude reads a shared plugin file with its Read tool, a copy you forked into <code>Personal/</code> is opened instead (a shell <code>cat</code> is not redirected), and a forked agent is offered once per session when a skill calls the shipped one. <code>PM_OS_PERSONAL_FORKS=0</code> turns both off</li>
+            <li><strong><code>/manage</code> is a front door</strong> — Say what you want (<code>/manage hooks</code>, <code>/manage set up redash</code>) and it goes straight there; with no request it checks integrations, hooks and forks and proposes one plan. A new key-entry helper takes an API key at a hidden prompt in your own terminal, so the key never enters the chat</li>
+            <li><strong>Eleven new skills</strong> — <code>/build-redash-dashboard</code>, <code>/audit-modules</code>, <code>/report-limit</code>, <code>/refresh-task-waits</code>, <code>/whats-next</code>, <code>/draft-jira-status-comment</code>, <code>/insert-html-slides</code>, <code>/hnt-report-newtab-experiments</code>, <code>/hnt-summarize-trainhop-patches</code>, <code>/ai-update-team-wiki</code> and <code>/ai-write-bet-two-pager</code></li>
+          </ul>
+          <p><strong>Things you may notice on day one:</strong></p>
+          <ul>
+            <li>New prompts from the two hooks above. The code-download prompt always asks</li>
+            <li>The recommended permissions list is smaller: <code>curl</code>, <code>git clone</code> and the Bugzilla write tools now prompt unless you already copied the old list</li>
+            <li>The Redash client's new <code>delete</code> command accepts only dashboard widgets</li>
+            <li><code>/refresh-voice-guide</code> finds your own writing in Slack, Gmail and Drive instead of needing pasted samples; <code>/update</code> reports your Personal repo's real state</li>
+          </ul>
+          <p><strong>Team knowledge:</strong></p>
+          <ul>
+            <li>Corrections and new baselines across the <code>growth</code>, <code>hnt</code> and <code>ai</code> team layers. None of it loads unless you are on those teams</li>
+          </ul>
+          <p>Skills 73 → 84. Modules 26 → 28. Default-on hooks 11 → 17. <a href="https://github.com/mozilla/internal-aidev-plugins/blob/main/plugins/pm-os-base/RELEASE_NOTES_0.7.0.md">Full release notes</a></p>
+        </div>
+
         <div class="step">
           <h3>Version 0.6.0 — October 14, 2026</h3>
           <p><strong>New:</strong></p>

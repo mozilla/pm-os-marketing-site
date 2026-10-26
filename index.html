@@ -1480,7 +1480,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     <section class="section-contained">
       <div class="section-header">
         <h2>Review &amp; Maintainability Pipeline</h2>
-        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-23, not an aspiration.</p>
+        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-26, not an aspiration.</p>
       </div>
 
       <div class="feature-card" style="margin-bottom: var(--space-lg);">
@@ -1640,6 +1640,12 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <p>The "code review / security review / standards review" split is the target shape, not how today's five routing branches are literally organized. Each branch runs whatever mix of checks fits its content: <code>teams/**</code> gets a narrow security-and-broken-reference pass only — by deliberate design: reviewing team-knowledge content for accuracy produces constant nitpicking over nuance Claude can't judge. <code>hooks/**</code> gets a deterministic audit and fixture tests plus an advisory standards check, since a bad hook runs on every PM's machine. <code>CLAUDE.md</code>/<code>AGENTS.md</code> gets security plus a router-pattern check against the existing standards doc, with no deterministic audit job at all, since these files have no code to run a script against. <code>skills/**</code> gets an advisory check against the 8-laws and outbound-tool standards, also with no deterministic job. <code>modules/**</code> gets an advisory content-quality check only, since the structural part of its standard already runs as a deterministic CI check outside this pipeline. As more paths get routed, the aim is for each new branch to assemble the lanes it actually needs from the same three building blocks, not to force every path through all three.</p>
       </div>
 
+      <div class="feature-card" style="margin-bottom: var(--space-lg);">
+        <h3>How the review workflows are kept safe</h3>
+        <p>The reviewers read untrusted PR text, so the model steps are boxed in. In all six review workflows (the five per-path reviews and the general reviewer) the model can only read files: it has no shell. It writes its comment to a file, and a separate step with no model, run from the default branch rather than from the PR, cleans it (secret-shaped strings, invisible characters removed), caps its length and posts it.</p>
+        <p style="margin-top: var(--space-xs);">The general reviewer remembers findings a human or an author's Claude has closed, so they aren't raised again unless the code changed. File lists for large PRs come from the paged API, because the one-shot diff call fails past 300 files. The outbound-send hook asks only for a send that looks dangerous, instead of on every send.</p>
+      </div>
+
       <div class="section-header">
         <h2>Keeping this from growing unmanageable</h2>
       </div>
@@ -1649,7 +1655,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="section-header" style="margin-top: var(--space-lg);">
         <h2>What's next</h2>
-        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-10-23 — expect this to move.</p>
+        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-10-26 — expect this to move.</p>
       </div>
 
       <h3 style="margin-bottom: var(--space-xs);">Already in the plan, not yet built</h3>
@@ -1699,7 +1705,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         </div>
         <div class="feature-card">
           <h3>Reports on what's landing + regular release notes</h3>
-          <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are now an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement. Proposed: a one-line Slack note on every merge, plus a weekly release that runs itself. A scheduled job drafts the notes from the week's diffs. A second review checks every claim against the code. A maintainer approves once. Merging the notes then triggers the tag, the GitHub Release, the site update and the Slack announcement automatically. The single human approval stays because release notes go to every PM, and past notes have shipped real factual errors. All of it runs in GitHub Actions. Not built yet.</p>
+          <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement, and past notes have shipped real factual errors.</p>
+          <p>Not running yet. The design is a weekly job that drafts the notes from the week's diffs, a second review that checks every claim against the code, and a single approval before the tag, the GitHub Release, the site update and the Slack announcement. A check that counts skills, modules and hooks straight from the repo is written and tested; the scheduled workflows are not in the repo and nothing is scheduled.</p>
         </div>
       </div>
 

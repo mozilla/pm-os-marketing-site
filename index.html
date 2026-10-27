@@ -1642,8 +1642,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="feature-card" style="margin-bottom: var(--space-lg);">
         <h3>How the review workflows are kept safe</h3>
-        <p>The reviewers read untrusted PR text, so the model steps are boxed in. In all six review workflows (the five per-path reviews and the general reviewer) the model has no shell and can only read files, plus write its own comment file. It writes its comment there, and a separate step with no model, run from the default branch rather than from the PR, cleans it (secret-shaped strings redacted; invisible characters, HTML and links neutralised), caps its length and posts it.</p>
-        <p style="margin-top: var(--space-xs);">The general reviewer remembers findings a human or an author's Claude has closed, so they aren't raised again unless the code changed. File lists for large PRs come from the paged API, because the one-shot diff call fails on very large PRs. The outbound-send hook is built to ask only for a send that looks dangerous, instead of on every send.</p>
+        <p>The reviewers read untrusted PR text, so the model steps are boxed in. In all six review workflows (the five per-path reviews and the general reviewer) the model has no shell and can only read files (the five per-path reviews may also write one comment file; the general reviewer returns structured output instead). In every case a separate step with no model, run from the default branch rather than from the PR, cleans what the model produced (secret-shaped strings redacted; invisible characters, HTML and links neutralised), caps its length and posts it.</p>
+        <p style="margin-top: var(--space-xs);">The general reviewer remembers findings that an earlier review closed as fixed or withdrawn, including after an author's reply disputed them, so they aren't raised again unless the code changed. File lists for large PRs come from the paged API, because the one-shot diff call fails on very large PRs. The outbound-send hook is built to ask only for a send that looks dangerous, instead of on every send.</p>
       </div>
 
       <div class="section-header">
@@ -1706,7 +1706,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <div class="feature-card">
           <h3>Reports on what's landing + regular release notes</h3>
           <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement, and past notes have shipped real factual errors.</p>
-          <p>Not running yet. The design is a weekly job that drafts the notes from the week's diffs, a second review that checks every claim against the code, and a single approval before the tag, the GitHub Release, the site update and the Slack announcement. None of it is in the repo yet: no scheduled release workflow exists and nothing is scheduled.</p>
+          <p>Not running yet. The design is a weekly job that drafts the notes from the week's diffs, a second review that checks every claim against the code, and a single approval before the tag, the GitHub Release, the site update and the Slack announcement. None of it is running: no scheduled release workflow is live and nothing is scheduled.</p>
         </div>
       </div>
 

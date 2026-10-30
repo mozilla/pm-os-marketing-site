@@ -1740,6 +1740,29 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="steps">
         <div class="step">
+          <h3>Version 0.8.0 — October 30, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Far fewer prompts</strong> — Downloading a code repository no longer asks; it is simply allowed unless Claude can't read the command, in which case it is blocked. Sends now ask only for a short list of dangerous moves: making something public, sending to a named person outside Mozilla through a tool, pushing internal code to an outside remote, uploading to an outside host after reading Mozilla data, and changing a bug's security groups. A send that looks like it carries a secret, or a command Claude can't read, is blocked instead of asked about. This follows through on the 0.7.0 note about toning prompts down</li>
+            <li><strong>Two skills that cross-examine your own draft</strong> — <code>/write-product-brief</code> and <code>/write-decision-brief</code> read a brief you wrote, find the gaps, and only then produce the PM OS version. By default, neither writes a brief from scratch</li>
+          </ul>
+          <p><strong>Things you may notice on day one:</strong></p>
+          <ul>
+            <li>Credential files are guarded more tightly: writing to a module's <code>credentials.env</code> can now be blocked in cases that used to pass</li>
+            <li>Your forks in <code>Personal/</code> now take effect only for non-code files (not scripts); a same-named script elsewhere no longer overrides the shipped one</li>
+            <li><code>/push-config</code> keeps more colleague data local by default, unless you opt in with a marker file</li>
+            <li><code>/done</code> ends with a refresh of your task waits that blocks <code>git push</code> and <code>gh api</code> until your next message, so push before it</li>
+            <li><code>/sync-zoom</code> starts from your calendar and asks whether an unlisted meeting was an ad hoc call</li>
+            <li>The Redash client refuses to update a query or dashboard you don't own, and saves a snapshot first</li>
+          </ul>
+          <p><strong>Team knowledge:</strong></p>
+          <ul>
+            <li>Corrections and new baselines in the <code>growth</code> team layer. None of it loads unless you are on that team</li>
+          </ul>
+          <p><a href="https://github.com/mozilla/internal-aidev-plugins/blob/main/plugins/pm-os-base/RELEASE_NOTES_0.8.0.md">Full release notes</a></p>
+        </div>
+
+        <div class="step">
           <h3>Version 0.7.0 — October 23, 2026</h3>
           <p><strong>New:</strong></p>
           <ul>

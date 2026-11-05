@@ -857,7 +857,7 @@ a:focus-visible, button:focus-visible {
 
       <div style="margin-top: var(--space-xl);">
         <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: var(--space-sm);">Pre-Built Skills to Make PM Life Easier</h3>
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 84 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: var(--text-width);">This is just a sample of the variety of skills available in the PM OS — 86 skills covering everything from experiment design to data analysis to stakeholder updates.</p>
         <div class="features">
           <div class="feature-card">
             <h3>/write-experiment-brief</h3>
@@ -924,7 +924,7 @@ a:focus-visible, button:focus-visible {
     <section class="section-contained">
       <div class="section-header">
         <h2>Skills Reference</h2>
-        <p>A selection of the 84 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
+        <p>A selection of the 86 skills in PM OS, organized by job to be done. Use the filters to browse by category or team.</p>
       </div>
 
       <div class="skills-browser">
@@ -1739,6 +1739,26 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
       </div>
 
       <div class="steps">
+        <div class="step">
+          <h3>Version 0.8.1 — November 5, 2026</h3>
+          <p><strong>New:</strong></p>
+          <ul>
+            <li><strong>Google Sheets guidance</strong> — Sheets built through PM OS now get a layout pass for column widths and a visual check, and the guidance says what to skip when the Google Workspace command-line tool isn't set up.</li>
+            <li><strong>Experiment sizing checks adoption</strong> — Experiment sizing and review ask what share of users will really change their browser, and how that sets the effect a test needs to find.</li>
+            <li><strong>Growth weeknote drafts from what shipped</strong> — The draft uses what was actually sent last week, and holds a figure until its owner shares it as a result.</li>
+            <li><strong>Safer Drive sharing</strong> — Sharing a file with everyone at a domain outside Mozilla now asks you first.</li>
+            <li><strong>Decision briefs check their tools</strong> — The brief skill confirms Jira, Confluence and Drive search are connected before it starts.</li>
+          </ul>
+          <p><strong>Things you may notice on day one:</strong></p>
+          <ul>
+            <li>Your personal fork of a shipped agent applies without a question.</li>
+            <li>Slide decks copied from the template land in your My Drive unless you name a shared drive.</li>
+            <li>Redash updates that use a slug or a non-numeric ID are refused.</li>
+            <li>Backups and updates handle linked PM OS folders and local-only files more carefully.</li>
+          </ul>
+          <p><a href="https://github.com/mozilla/internal-aidev-plugins/blob/v0.8.1/plugins/pm-os-base/RELEASE_NOTES_0.8.1.md">Full release notes</a></p>
+        </div>
+
         <div class="step">
           <h3>Version 0.8.0 — October 30, 2026</h3>
           <p><strong>New:</strong></p>

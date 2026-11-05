@@ -1718,7 +1718,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <div class="feature-card">
           <h3>Reports on what's landing + regular release notes</h3>
           <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement, and past notes have shipped real factual errors.</p>
-          <p>Built, not scheduled. Two workflows merged on 2026-10-28, both switched off and set to dry-run by default: a weekly release job that drafts the notes from the week's diffs, has a second review check every claim against the code, and then tags, publishes the GitHub Release, updates the site and posts the Slack announcement, and a weekly maintainer digest. Both have only been run by hand. The digest dry run passes; the release dry run is still failing on two known bugs in the notes builder, and fixes are in review. No cron trigger is on, nothing has been published by either job, and a real run needs a maintainer to start it.</p>
+          <p>Two workflows run the release process: a weekly release job that drafts the notes from the week's diffs, has a second review check every claim against the code, and then tags, publishes the GitHub Release, updates this site and posts the Slack announcement, and a weekly maintainer digest. Neither runs on a schedule yet, so a maintainer starts each run by hand, and a run is a dry run unless they untick that option. Release 0.8.1 was the first one cut this way. The run history is in the repository's Actions tab.</p>
         </div>
       </div>
 

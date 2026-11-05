@@ -1492,7 +1492,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     <section class="section-contained">
       <div class="section-header">
         <h2>Review &amp; Maintainability Pipeline</h2>
-        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-10-26, not an aspiration.</p>
+        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-11-05, not an aspiration.</p>
       </div>
 
       <div class="feature-card" style="margin-bottom: var(--space-lg);">
@@ -1667,7 +1667,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="section-header" style="margin-top: var(--space-lg);">
         <h2>What's next</h2>
-        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-10-26 — expect this to move.</p>
+        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-11-05 — expect this to move.</p>
       </div>
 
       <h3 style="margin-bottom: var(--space-xs);">Already in the plan, not yet built</h3>
@@ -1718,7 +1718,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <div class="feature-card">
           <h3>Reports on what's landing + regular release notes</h3>
           <p>Every merge to <code>main</code> ships to users on their next update, with no version gate. Release notes are an optional record, cut only when someone decides enough has merged, so most changes reach users with no announcement, and past notes have shipped real factual errors.</p>
-          <p>Not running yet. The design is a weekly job that drafts the notes from the week's diffs, a second review that checks every claim against the code, and a single approval before the tag, the GitHub Release, the site update and the Slack announcement. None of it is running: no scheduled release workflow is live and nothing is scheduled.</p>
+          <p>Built, not scheduled. Two workflows merged on 2026-10-28, both switched off and set to dry-run by default: a weekly release job that drafts the notes from the week's diffs, has a second review check every claim against the code, and then tags, publishes the GitHub Release, updates the site and posts the Slack announcement, and a weekly maintainer digest. Both have only been run by hand. The digest dry run passes; the release dry run is still failing on two known bugs in the notes builder, and fixes are in review. No cron trigger is on, nothing has been published by either job, and a real run needs a maintainer to start it.</p>
         </div>
       </div>
 

@@ -1492,7 +1492,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
     <section class="section-contained">
       <div class="section-header">
         <h2>Review &amp; Maintainability Pipeline</h2>
-        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-11-05, not an aspiration.</p>
+        <p>How pm-os-base PRs actually get reviewed today, what's still manual, and where this is headed. Written for maintainers — status reflects the repo as of 2026-11-06, not an aspiration.</p>
       </div>
 
       <div class="feature-card" style="margin-bottom: var(--space-lg);">
@@ -1502,8 +1502,16 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <p style="margin-top: var(--space-xs);">Taken far enough, that means a contributor states what they want to build and why, Claude asks whatever it needs to fill the gaps, and the rest (build, review, merge, ship) happens without a maintainer manually checking in at every step. That's only viable if the checks do the job a maintainer's own read would have done. This plan treats one of those checks as first-class, not optional: whether a change grows the plugin's size and complexity without earning it. Removing the human from routine review also removes the person who used to ask "do we actually need this?" That judgment has to get rebuilt into the checks themselves, or the codebase grows unchecked.</p>
       </div>
 
+      <div class="feature-card" style="margin-bottom: var(--space-lg); border-left: 4px solid var(--accent);">
+        <h3>Where it stands (2026-11-06)</h3>
+        <p><strong>Live:</strong> the CI code review runs on every pm-os-base PR and posts one comment with its verdict, findings and a list of what it could not check. It is advisory and blocks nothing. A weekly maintainer digest posts to the maintainers' Slack channel, listing what merged and what is waiting on review, oldest first.</p>
+        <p style="margin-top: var(--space-xs);"><strong>Still a person:</strong> approving and merging every PR. A maintainer reads the review and decides; a PR that touches hooks also needs a run on a maintainer's machine, because CI can read a hook but cannot run one.</p>
+        <p style="margin-top: var(--space-xs);"><strong>Built, not yet proven:</strong> the weekly release (it published one release, then refused a later draft because its own verifier flagged overstated claims, which is the safeguard working), and its schedule.</p>
+        <p style="margin-top: var(--space-xs);"><strong>Not turned on:</strong> automatic approval and merge (see "What's next").</p>
+      </div>
+
       <div class="pipeline-diagram">
-        <svg viewBox="0 0 940 732" role="img" aria-label="Pipeline diagram: today, every PR already gets a manual, ungoverned Claude review from whoever's reviewing it. Below that, PR-triggered review lanes for teams, hooks, CLAUDE.md/AGENTS.md, skills, and modules are all live and formalize that same check path by path; a general correctness review across every path is live. A scheduled lane sweeps every skill for claims that are no longer true, with a usage audit still planned. All of it feeds a single signal for whether a PR is safe to merge without a maintainer reviewing it by hand.">
+        <svg viewBox="0 0 940 732" role="img" aria-label="Pipeline diagram: today, every PR already gets a manual, ungoverned Claude review from whoever's reviewing it. Below that, PR-triggered review lanes for teams, hooks, CLAUDE.md/AGENTS.md, skills, and modules are all live and formalize that same check path by path; a general correctness review across every path is live. A scheduled lane sweeps every skill for claims that are no longer true, with a usage audit still planned. All of it feeds the review comment a maintainer reads before approving and merging; a person still approves and merges every PR.">
           <defs>
             <marker id="diag-arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="var(--text-secondary)" />
@@ -1642,7 +1650,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
           <rect x="560" y="670" width="300" height="44" rx="6" class="diag-box" />
           <text x="710" y="688" text-anchor="middle" class="diag-label">Safe-to-merge signal</text>
-          <text x="710" y="703" text-anchor="middle" class="diag-sublabel">replaces a maintainer reviewing the PR by hand</text>
+          <text x="710" y="703" text-anchor="middle" class="diag-sublabel">read by a maintainer, who approves and merges</text>
         </svg>
       </div>
 
@@ -1667,7 +1675,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
 
       <div class="section-header" style="margin-top: var(--space-lg);">
         <h2>What's next</h2>
-        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-11-05 — expect this to move.</p>
+        <p>Three different kinds of gap, in order of how settled the work is. Updated 2026-11-06 — expect this to move.</p>
       </div>
 
       <h3 style="margin-bottom: var(--space-xs);">Already in the plan, not yet built</h3>
@@ -1681,8 +1689,8 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
           <p>"Needs a human call" items have nowhere specific to land — no named codeowner or rotation decided.</p>
         </div>
         <div class="feature-card">
-          <h3>Ruleset change (Phase 3)</h3>
-          <p>Once the evidence base shows it's warranted: identify who owns branch protection, then let the bot's review satisfy <code>require_code_owner_review</code> directly. The actual mechanical step that removes a human from per-PR review.</p>
+          <h3>Automatic approval and merge (parked)</h3>
+          <p>An approve-only GitHub App was built, installed and tested, and it stays switched off. GitHub does not count an approve-only App's approval toward the required review, and an App cannot be a code owner. Counting it needs a permission that would also let the App merge, and the organization's AI in Development standard requires a person to review every merge into a production branch. So a person still approves and merges every PR, on the CI review's recommendation. Revisit if an exception to that standard is ever granted.</p>
         </div>
       </div>
 

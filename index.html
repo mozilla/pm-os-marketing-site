@@ -1506,7 +1506,7 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
         <h3>Where it stands (2026-11-06)</h3>
         <p><strong>Live:</strong> the CI code review runs on every pm-os-base PR and posts one comment with its verdict, findings and a list of what it could not check. It is advisory and blocks nothing. A weekly maintainer digest posts to the maintainers' Slack channel, listing what merged and what is waiting on review, oldest first.</p>
         <p style="margin-top: var(--space-xs);"><strong>Still a person:</strong> approving and merging every PR. A maintainer reads the review and decides; a PR that touches hooks also needs a run on a maintainer's machine, because CI can read a hook but cannot run one.</p>
-        <p style="margin-top: var(--space-xs);"><strong>Built, not yet proven:</strong> the weekly release (it published one release, then refused a later draft because its own verifier flagged overstated claims, which is the safeguard working), and its schedule.</p>
+        <p style="margin-top: var(--space-xs);"><strong>Built, not yet proven:</strong> the weekly release (it published one release, then refused later drafts when its own safeguard could not confirm claims about one large change, so it needs a larger review budget before it can be trusted unattended), and its schedule.</p>
         <p style="margin-top: var(--space-xs);"><strong>Not turned on:</strong> automatic approval and merge (see "What's next").</p>
       </div>
 
